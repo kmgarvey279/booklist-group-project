@@ -14,6 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { MyListComponent } from './my-list/my-list.component';
 import { LoginComponent } from './login/login.component';
+import { AuthService } from './auth.service';
 
 
 export const firebaseConfig = {
@@ -47,7 +48,9 @@ export const firebaseConfig = {
       { path: 'my-list', component: MyListComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
