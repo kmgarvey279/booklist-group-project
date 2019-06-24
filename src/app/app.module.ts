@@ -15,6 +15,9 @@ import { HomeComponent } from './home/home.component';
 import { MyListComponent } from './my-list/my-list.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
+import { UserService } from './user.service';
+import { AdminAuthGuardService } from './admin-auth-guard.service';
 
 
 export const firebaseConfig = {
@@ -45,11 +48,18 @@ export const firebaseConfig = {
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'my-list', component: MyListComponent }
+
+      { path: 'my-list',
+        component: MyListComponent,
+        canActivate: [AuthGuardService, AdminAuthGuardService] 
+      }
     ])
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuardService, 
+    UserService,
+    AdminAuthGuardService
   ],
   bootstrap: [AppComponent]
 })
