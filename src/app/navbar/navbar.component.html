@@ -1,9 +1,8 @@
+
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
   <div class="container">
       <a class="navbar-brand" routerLink="/">BookReviews</a>
-  <button class="navbar-toggler"
-
-  type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"
   [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,7 +10,7 @@
   <div id="collapseExample" [ngbCollapse]="!isCollapsed" class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="login">Login</a>
       </li>
       <li ngbDropdown class="nav-item dropdown">
         <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
