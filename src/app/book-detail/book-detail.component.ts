@@ -78,6 +78,6 @@ export class BookDetailComponent implements OnInit {
   }
 
   deleteBook(bookToMove) {
-    this.bookService.deleteBook(selectedBook);
+    this.bookService.deleteBook(bookToMove);
   }
 }

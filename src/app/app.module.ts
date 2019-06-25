@@ -12,7 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { MyListComponent } from './my-list/my-list.component';
+import { MyBookListComponent } from './my-book-list/my-book-list.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 
@@ -31,8 +32,9 @@ export const firebaseConfig = {
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    MyListComponent,
-    LoginComponent
+    MyBookListComponent,
+    LoginComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ export const firebaseConfig = {
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'my-list', component: MyListComponent }
+      { path: 'my-book-list', component: MyBookListComponent },
+      { path: 'book-detail', component: BookDetailComponent }
     ])
   ],
   providers: [

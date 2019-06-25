@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../book.model';
 import { BookService } from '../book.service';
 import { Router } from '@angular/router';
-import { AngularFireBase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-my-book-list',
@@ -10,6 +10,7 @@ import { AngularFireBase, FirebaseListObservable } from 'angularfire2/database';
   styleUrls: ['./my-book-list.component.css'],
   providers: [ BookService ]
 })
+
 export class MyBookListComponent implements OnInit {
   constructor(private router: Router, private bookService: BookService) { }
   myBooks: FirebaseListObservable <any[]> = null;
@@ -18,7 +19,7 @@ export class MyBookListComponent implements OnInit {
   filterByFinished: string = "finishedReading";
 
   ngOnInit() {
-    this.books = this.bookService.getBooks();
+    this.myBooks = this.bookService.getBooks();
   }
 
   deleteBook(selectedBook: Book) {
