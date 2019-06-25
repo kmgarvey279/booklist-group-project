@@ -6,7 +6,7 @@ export class Book {
               public publishedDate: string,
               public description: string,
               public isbn_10: number,
-              public isbn_13: number
+              public isbn_13: number,
               public pageCount: number,
               public mainCategory: string,
               public categories: string,

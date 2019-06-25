@@ -11,21 +11,21 @@ export class ShelfPipe implements PipeTransform {
     var output: Book[] = [];
     if(desiredShelf == "wantToRead") {
       for (let i = 0; i < input.length; i++) {
-        if (input[i].status == "wantToRead") {
+        if (input[i].shelf == "wantToRead") {
           output.push(input[i]);
         }
       }
       return output;
     } else if (desiredShelf == "currentlyReading") {
       for (let i = 0; i < input.length; i++) {
-        if (input[i].status == "currentlyReading") {
+        if (input[i].shelf == "currentlyReading") {
           output.push(input[i]);
         }
       }
       return output;
     } else if (desiredShelf == "finishedReading") {
       for (let i = 0; i < input.length; i++) {
-        if (input[i].status == "finishedReading") {
+        if (input[i].shelf == "finishedReading") {
           output.push(input[i]);
         }
       }
