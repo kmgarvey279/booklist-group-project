@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Book } from '../book.model';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-book-detail',
@@ -10,10 +11,10 @@ import { Book } from '../book.model';
   providers: [BookService]
 })
 export class BookDetailComponent implements OnInit {
+  constructor(private route: ActivatedRoute, private location: Location, private bookService: BookService) { }
+
   bookId: string;
   bookToDisplay: Book;
-
-  constructor(private route: ActivatedRoute, private location: Location, private bookService: BookService) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParametersArray) => {

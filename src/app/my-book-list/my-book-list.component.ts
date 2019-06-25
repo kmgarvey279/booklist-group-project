@@ -12,13 +12,13 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 
 export class MyBookListComponent implements OnInit {
+  constructor(private router: Router, private bookService: BookService) { }
+
   myBooks: FirebaseListObservable <any[]> = null;
   filterByWantToRead: string = "wantToRead";
   filterByReading: string = "currentlyReading";
   filterByFinished: string = "finishedReading";
-
-  constructor(private router: Router, private bookService: BookService) { }
-
+  
   ngOnInit() {
     this.myBooks = this.bookService.getBooks();
   }
