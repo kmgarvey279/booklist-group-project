@@ -9,9 +9,7 @@ import { GoodReadsService } from './good-reads.service';
 })
 export class AppComponent implements OnInit {
   title = 'app works!';
-  constructor(private googleBooks: GoodReadsService){
-
-  }
+  constructor(private googleBooks: GoodReadsService){}
   ngOnInit(){
     this.googleBooks.searchBookByTitle('test').subscribe(val => console.log(val));
     this.googleBooks.searchBookByAuthor('Charles Dickens').subscribe(val => console.log(val));
