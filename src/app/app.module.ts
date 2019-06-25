@@ -18,6 +18,9 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { BookService } from './book.service';
+import { AuthGuardService } from './auth-guard.service';
+import { UserService } from './user.service';
+import { AdminAuthGuardService } from './admin-auth-guard.service';
 
 
 export const firebaseConfig = {
@@ -52,11 +55,18 @@ export const firebaseConfig = {
       { path: 'login', component: LoginComponent },
       { path: 'my-book-list', component: MyBookListComponent },
       { path: 'book-detail', component: BookDetailComponent }
+
+      { path: 'my-list',
+        component: MyListComponent,
+        canActivate: [AuthGuardService] 
+      }
     ])
   ],
   providers: [
     AuthService,
     BookService
+    AuthGuardService, 
+    UserService
   ],
   bootstrap: [AppComponent]
 })
