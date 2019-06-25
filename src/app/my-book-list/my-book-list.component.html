@@ -12,7 +12,7 @@
           <!-- link to buy book -->
           <button (click)="startBook">Move To My 'Currently Reading' Shelf</button>
           <button (click)="finishBook">Move To My 'Books I've Read' Shelf</button>
-          <button (click)="deleteBook(book)">Remove From My Shelves</button>
+          <button (click)="removeBook(book)">Remove From My Shelves</button>
         </li>
       </ul>
     </div>
@@ -25,7 +25,7 @@
           <h3 (click)="goToDetailPage(book)">{{book.title}}</h3>
           <button (click)="wantBook">Move To My 'Want To Read' Shelf</button>
           <button (click)="startBook">Move To My 'Books I've Read' Shelf</button>
-          <button (click)="deleteBook(book)">Remove From My Shelves</button>
+          <button (click)="removeBook(book)">Remove From My Shelves</button>
         </li>
       </ul>
     </div>
@@ -39,7 +39,7 @@
           <!-- link to rate/review this book -->
           <button (click)="wantBook">Move To My 'Want To Read' Shelf</button>
           <button (click)="startBook">Move To My 'Currently Reading' Shelf</button>
-          <button (click)="deleteBook(book)">Remove From My Shelves</button>
+          <button (click)="removeBook(book)">Remove From My Shelves</button>
         </li>
       </ul>
     </div>

@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { ShelfPipe } from './shelf.pipe'
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +17,7 @@ import { MyBookListComponent } from './my-book-list/my-book-list.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
+import { BookService } from './book.service';
 
 
 export const firebaseConfig = {
@@ -34,7 +36,8 @@ export const firebaseConfig = {
     HomeComponent,
     MyBookListComponent,
     LoginComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    ShelfPipe
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ export const firebaseConfig = {
     ])
   ],
   providers: [
-    AuthService
+    AuthService,
+    BookService
   ],
   bootstrap: [AppComponent]
 })
