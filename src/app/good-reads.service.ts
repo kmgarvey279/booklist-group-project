@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { googleBooks } from './../../api-keys';
+import { googleBooks } from './api-keys';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';

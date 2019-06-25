@@ -13,6 +13,12 @@ import { Router } from '@angular/router';
 
 export class AppComponent implements OnInit{
   title = 'app works!';
+  ngOnInit(){
+    this.googleBooks.searchBookByTitle('test').subscribe(val => console.log(val));
+    this.googleBooks.searchBookByAuthor('Charles Dickens').subscribe(val => console.log(val));
+    this.googleBooks.searchBookBySubject('Juvenile Fiction').subscribe(val => console.log(val));
+    this.googleBooks.searchBookByGeneral('test').subscribe(val => console.log(val));
+  }
 
   constructor(
     private googleBooks: GoodReadsService,
@@ -28,11 +34,6 @@ export class AppComponent implements OnInit{
       router.navigateByUrl(returnUrl);
     });
 
-    ngOnInit(){
-      this.googleBooks.searchBookByTitle('test').subscribe(val => console.log(val));
-      this.googleBooks.searchBookByAuthor('Charles Dickens').subscribe(val => console.log(val));
-      this.googleBooks.searchBookBySubject('Juvenile Fiction').subscribe(val => console.log(val));
-      this.googleBooks.searchBookByGeneral('test').subscribe(val => console.log(val));
-    }
+    
   }
 }

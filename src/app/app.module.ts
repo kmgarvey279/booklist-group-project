@@ -20,7 +20,6 @@ import { AuthService } from './auth.service';
 import { BookService } from './book.service';
 import { AuthGuardService } from './auth-guard.service';
 import { UserService } from './user.service';
-import { AdminAuthGuardService } from './admin-auth-guard.service';
 
 
 export const firebaseConfig = {
@@ -53,19 +52,18 @@ export const firebaseConfig = {
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'my-book-list', component: MyBookListComponent },
+      { path: 'my-book-list', component: MyBookListComponent, canActivate: [AuthGuardService] },
       { path: 'book-detail', component: BookDetailComponent }
 
-      { path: 'my-list',
-        component: MyListComponent,
-        canActivate: [AuthGuardService] 
-      }
+      // { path: 'my-list',
+      //   component: MyListComponent,
+      //   canActivate: [AuthGuardService] 
+      // }
     ])
   ],
   providers: [
     AuthService,
-    BookService
-    AuthGuardService, 
+    BookService, 
     UserService
   ],
   bootstrap: [AppComponent]
