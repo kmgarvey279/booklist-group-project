@@ -11,7 +11,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   providers: [BookService]
 })
 export class BookDetailComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private location: Location, private bookService: BookService) { }
+  constructor(private route: ActivatedRoute, private bookService: BookService) { }
 
   bookId: string;
   bookToDisplay: Book;
