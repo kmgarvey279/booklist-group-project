@@ -35,16 +35,10 @@ export class GoodReadsService {
         let foundBook = new Book(googleBooksId,
                             response.json().volumeInfo.title,
                             this.getAuthors(response.json().volumeInfo.authors),
-                            response.json().volumeInfo.publisher,
-                            response.json().volumeInfo.publishedDate,
-                            response.json().volumeInfo.description,
                             response.json().volumeInfo.pageCount,
                             response.json().valumeInfo.mainCategory,
                             this.getCategories(response.json().volumeInfo.categories),
-                            response.json().volumeInfo.imageLinks.thumbnail,
                             response.json().volumeInfo.imageLinks.medium,
-                            response.json().saleInfo.retailPrice.amount,
-                            response.json().saleInfo.buyLink,
                             shelf);
         this.bookService.addBook(foundBook);
       })

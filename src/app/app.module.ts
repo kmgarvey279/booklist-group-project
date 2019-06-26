@@ -51,7 +51,7 @@ export const firebaseConfig = {
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'my-book-list', component: MyBookListComponent },
-      { path: 'book-detail', component: BookDetailComponent }
+      { path: 'myBooks/:id', component: BookDetailComponent }
     ])
   ],
   providers: [

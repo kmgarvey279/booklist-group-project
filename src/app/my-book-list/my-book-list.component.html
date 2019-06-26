@@ -3,13 +3,21 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-md" id="wantToReadShelf">
+    <div class="col-lg" id="wantToReadShelf">
       <h3>Want To Read</h3>
       <ul>
         <li *ngFor="let book of myBooks | async | shelf:filterByWantToRead">
-          <img src = {{book.thumbnailImage}}>
-          <h3 (click)="goToDetailPage(book)">{{book.title}}</h3>
-          <!-- link to buy book -->
+          <h3>{{book.title}}</h3>
+          <h5>by {{book.authors}}, {{book.pageCount}} pages</h5>
+          <div class="row">
+            <div class="col-md">
+              <img (click)="goToDetailPage(book)" src = {{book.image}}>
+            </div>
+            <div class="col-md">
+              <p>Main category: {{book.mainCategory}}</p>
+              <p>Sub-categories: {{book.categories}}</p>
+            </div>
+          </div>
           <button (click)="moveBook(book, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
           <button (click)="moveBook(book, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
           <button (click)="removeBook(book)">Remove From My Shelves</button>
@@ -17,12 +25,21 @@
       </ul>
     </div>
 
-    <div class="col-md" id="currentlyReadingShelf">
+    <div class="col-lg" id="currentlyReadingShelf">
       <h3>Currently Reading</h3>
       <ul>
         <li *ngFor="let book of myBooks | async | shelf:filterByReading">
-          <img src = {{book.thumbnailImage}}>
-          <h3 (click)="goToDetailPage(book)">{{book.title}}</h3>
+          <h3>{{book.title}}</h3>
+          <h5>by {{book.authors}}, {{book.pageCount}} pages</h5>
+          <div class="row">
+            <div class="col-md">
+              <img (click)="goToDetailPage(book)" src = {{book.image}}>
+            </div>
+            <div class="col-md">
+              <p>Main category: {{book.mainCategory}}</p>
+              <p>Sub-categories: {{book.categories}}</p>
+            </div>
+          </div>
           <button (click)="moveBook(book, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
           <button (click)="moveBook(book, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
           <button (click)="removeBook(book)">Remove From My Shelves</button>
@@ -30,13 +47,21 @@
       </ul>
     </div>
 
-    <div class="col-md" id="finishedReadingShelf">
+    <div class="col-lg" id="finishedReadingShelf">
       <h3>Books I've Read</h3>
       <ul>
         <li *ngFor="let book of myBooks | async | shelf:filterByFinished">
-          <img src = {{book.thumbnailImage}}>
-          <h3 (click)="goToDetailPage(book)">{{book.title}}</h3>
-          <!-- link to rate/review this book -->
+          <h3>{{book.title}}</h3>
+          <h5>by {{book.authors}}, {{book.pageCount}} pages</h5>
+          <div class="row">
+            <div class="col-md">
+              <img (click)="goToDetailPage(book)" src = {{book.image}}>
+            </div>
+            <div class="col-md">
+              <p>Main category: {{book.mainCategory}}</p>
+              <p>Sub-categories: {{book.categories}}</p>
+            </div>
+          </div>
           <button (click)="moveBook(book, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
           <button (click)="moveBook(book, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
           <button (click)="removeBook(book)">Remove From My Shelves</button>
