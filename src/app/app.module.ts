@@ -1,3 +1,5 @@
+import { UserService } from './user.service';
+import { AuthGuardService } from './auth-guard.service';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -9,12 +11,15 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { ShelfPipe } from './shelf.pipe'
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { MyListComponent } from './my-list/my-list.component';
+import { MyBookListComponent } from './my-book-list/my-book-list.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
+import { BookService } from './book.service';
 
 
 export const firebaseConfig = {
@@ -31,8 +36,10 @@ export const firebaseConfig = {
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    MyListComponent,
-    LoginComponent
+    MyBookListComponent,
+    LoginComponent,
+    BookDetailComponent,
+    ShelfPipe
   ],
   imports: [
     BrowserModule,
@@ -45,11 +52,15 @@ export const firebaseConfig = {
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'my-list', component: MyListComponent }
+      { path: 'my-book-list', component: MyBookListComponent, canActivate: [AuthGuardService] },
+      { path: 'book-detail', component: BookDetailComponent, canActivate: [AuthGuardService] }
     ])
   ],
   providers: [
-    AuthService
+    AuthService,
+    BookService,
+    AuthGuardService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
