@@ -11,14 +11,14 @@ import { Book } from 'app/book.model';
 })
 export class SearchComponent implements OnInit {
   @Input() results:boolean;
-  books;
+  books: any[] = null;;
 
   constructor(private googleBooks: GoodReadsService) { }
 
   ngOnInit() {
   }
   search(query:string, type:string) {
-    
+    this.books = null;
     this.results = true;
 
     switch (type) {
