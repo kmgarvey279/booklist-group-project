@@ -1,0 +1,15 @@
+#notRead {
+  background-color: gray;
+}
+
+#wantToRead {
+  background-color: orange;
+}
+
+#reading {
+  background-color: green;
+}
+
+#read {
+  background-color: blue;
+}

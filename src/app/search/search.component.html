@@ -1,5 +1,8 @@
-<label>Title</label>
-<input #title>
-<label>Author</label>
-<input #author>
-<button (click)="search(title, author)">Search</button>
+
+<input #query>
+<select #type>
+  <option value="all">All</option>
+  <option value="author">Author</option>
+  <option value="title">Title</option>
+</select>
+<button (click)="search(query, type)">Search</button>

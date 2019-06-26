@@ -1,15 +1,29 @@
 import { Injectable } from '@angular/core';
-import {masterGoodreadsConfig} from './api-key';
-import goodreads from 'goodreads-api-node';
-const gr = goodreads(masterGoodreadsConfig);
+import { Book } from './book.model';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class BookService {
+  books: FirebaseListObservable<any[]>;
 
-  constructor() { }
+  constructor(private af: AngularFireDatabase) {
+    this.books = af.list('books');
+  }
 
-  getBooksByAuthor(authorId, page) {
-    gr.getBooksByAuthor('175417')
-      .then(console.log);
+  addBook(newBook: Book) {
+    this.books.push(newBook);
+  }
+
+  getBooks() {
+    return this.books;
+  }
+
+  deleteBook(selectedBook) {
+    let foundBook = this.getBookById(selectedBook.$key);
+    foundBook.remove();
+  }
+
+  getBookById(bookId: string) {
+    return this.af.object('books/' + bookId);
   }
 }
