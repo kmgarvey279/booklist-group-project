@@ -39,11 +39,11 @@ export class GoodReadsService {
                             response.json().volumeInfo.publishedDate,
                             response.json().volumeInfo.description,
                             response.json().volumeInfo.pageCount,
-                            response.json().valumeInfo.mainCategory,
+                            "string",
                             this.getCategories(response.json().volumeInfo.categories),
                             response.json().volumeInfo.imageLinks.thumbnail,
                             response.json().volumeInfo.imageLinks.medium,
-                            response.json().saleInfo.retailPrice.amount,
+                            0,
                             response.json().saleInfo.buyLink,
                             shelf);
         this.bookService.addBook(foundBook);
@@ -52,11 +52,11 @@ export class GoodReadsService {
 
   getAuthors(authorsArr) {
     let authors = "";
-    for (let i = 0; i < authorsArr.volumeInfo.authors.length; i++) {
+    for (let i = 0; i < authorsArr.length; i++) {
       if(i > 0) {
-        authors + ", " + authorsArr.volumeInfo.authors[i];
+        authors + ", " + authorsArr[i];
       } else {
-        authors + authorsArr.volumeInfo.authors[i];
+        authors + authorsArr[i];
       }
     }
     return authors;
@@ -64,11 +64,11 @@ export class GoodReadsService {
 
   getCategories(categoriesArr) {
     let categories = "";
-    for (let i = 0; i < categoriesArr.volumeInfo.categories.length; i++) {
+    for (let i = 0; i < categoriesArr.length; i++) {
       if(i > 0) {
-        categories + ", " + categoriesArr.volumeInfo.categories[i];
+        categories + ", " + categoriesArr[i];
       } else {
-        categories + categoriesArr.volumeInfo.categories[i];
+        categories + categoriesArr[i];
       }
     }
     return categories;
