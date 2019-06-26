@@ -15,7 +15,6 @@ export class BookDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location,
     private bookService: BookService
   ) { }
 
