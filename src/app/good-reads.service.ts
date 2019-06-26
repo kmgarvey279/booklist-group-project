@@ -35,37 +35,12 @@ export class GoodReadsService {
       .subscribe(response => {
         let foundBook = new Book(googleBooksId,
                             response.json().volumeInfo.title,
-                            this.getAuthors(response.json().volumeInfo.authors),
+                            response.json().volumeInfo.authors.toString(),
                             response.json().volumeInfo.pageCount,
-                            "string",
-                            this.getCategories(response.json().volumeInfo.categories),
+                            response.json().volumeInfo.categories.toString(),
                             response.json().volumeInfo.imageLinks.medium,
                             shelf);
         this.bookService.addBook(foundBook);
       })
-  }
-
-  getAuthors(authorsArr) {
-    let authors = "";
-    for (let i = 0; i < authorsArr.length; i++) {
-      if(i > 0) {
-        authors + ", " + authorsArr[i];
-      } else {
-        authors + authorsArr[i];
-      }
-    }
-    return authors;
-  }
-
-  getCategories(categoriesArr) {
-    let categories = "";
-    for (let i = 0; i < categoriesArr.length; i++) {
-      if(i > 0) {
-        categories + ", " + categoriesArr[i];
-      } else {
-        categories + categoriesArr[i];
-      }
-    }
-    return categories;
   }
 }

@@ -14,8 +14,7 @@
               <img (click)="goToDetailPage(book)" src = {{book.image}}>
             </div>
             <div class="col-md">
-              <p>Main category: {{book.mainCategory}}</p>
-              <p>Sub-categories: {{book.categories}}</p>
+              <p>Categories: {{book.categories}}</p>
             </div>
           </div>
           <button (click)="moveBook(book, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
@@ -36,8 +35,7 @@
               <img (click)="goToDetailPage(book)" src = {{book.image}}>
             </div>
             <div class="col-md">
-              <p>Main category: {{book.mainCategory}}</p>
-              <p>Sub-categories: {{book.categories}}</p>
+              <p>Categories: {{book.categories}}</p>
             </div>
           </div>
           <button (click)="moveBook(book, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
@@ -58,8 +56,7 @@
               <img (click)="goToDetailPage(book)" src = {{book.image}}>
             </div>
             <div class="col-md">
-              <p>Main category: {{book.mainCategory}}</p>
-              <p>Sub-categories: {{book.categories}}</p>
+              <p>Categories: {{book.categories}}</p>
             </div>
           </div>
           <button (click)="moveBook(book, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
