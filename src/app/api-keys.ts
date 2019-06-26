@@ -5,4 +5,8 @@ export const masterFirebaseConfig = {
     projectId: "book-reviews-group-project",
     storageBucket: "",
     messagingSenderId: "78265890768"
+};
+
+export const googleBooks = {
+  // AIzaSyC8ySlSuunpD6rSgiikK9T8bobzftursqw
 }
