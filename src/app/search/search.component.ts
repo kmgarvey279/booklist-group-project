@@ -23,23 +23,36 @@ export class SearchComponent implements OnInit {
 
     switch (type) {
       case "author":
-        this.books = this.googleBooks.searchBookByAuthor(query).subscribe(val => console.log(val));;
-        break;
+        this.googleBooks.searchBookByAuthor(query).subscribe(val => {
+        if(val.items.length > 0){
+          this.books = val.items;
+          console.log(val.items);
+        }
+      });       break;
       case "title":
-        this.books = this.googleBooks.searchBookByTitle(query).subscribe(val => console.log(val));;
+        this.googleBooks.searchBookByTitle(query).subscribe(val => {
+          if(val.items.length > 0){
+            this.books = val.items;
+            console.log(val.items);
+          }
+        });
         break;
       case "subject":
-        this.books = this.googleBooks.searchBookBySubject(query).subscribe(val => console.log(val));;
-        break;
+        this.googleBooks.searchBookBySubject(query).subscribe(val => {
+          if(val.items.length > 0){
+            this.books = val.items;
+            console.log(val.items);
+          }
+      });        break;
       default:
-        this.books = this.googleBooks.searchBookByGeneral(query).subscribe(val => console.log(val));;
+        this.googleBooks.searchBookByGeneral(query).subscribe(val => {
+          if(val.items.length > 0){
+            this.books = val.items;
+            console.log(val.items);
+          }
+      });    
     }
-    // console.log(this.books);
+    //  console.log(this.books.items[0]);
   }
-
-  displayResults(books){
-    console.log(books.items[0]);
-  }
-
 
 }
