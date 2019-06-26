@@ -7,13 +7,17 @@
   <option value="title">Title</option>
 </select>
 <button (click)="search(query.value, type.value)">Search</button>
+<br />
 <div *ngIf="results">
   <div *ngFor="let book of books;" class="book">
     <p>
-      <img src="{{book.volumeInfo.imageLinks.thumbnail" />
       {{book.volumeInfo.title}} by {{book.volumeInfo.authors}} 
-      {{book.volumeInfo.publishedDate}}
+      {{book.volumeInfo.publishedDate}} 
+      <button (click)="saveBook(book.id)">Add</button>
     </p>
     <p>{{book.volumeInfo.description}}</p>
+  </div>
+  <div *ngIf="books===null">
+    <p>No books match your search.</p>
   </div>
 </div>

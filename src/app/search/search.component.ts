@@ -52,7 +52,8 @@ export class SearchComponent implements OnInit {
           }
       });    
     }
-    //  console.log(this.books.items[0]);
   }
-
+  saveBook(id: string) {
+    this.googleBooks.saveBook(id, "");
+  }
 }
