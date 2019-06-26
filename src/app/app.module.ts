@@ -17,7 +17,10 @@ import { MyBookListComponent } from './my-book-list/my-book-list.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
+import { ResultsComponent } from './results/results.component';
 import { BookService } from './book.service';
+import { AuthGuardService } from './auth-guard.service';
+import { UserService } from './user.service';
 
 
 export const firebaseConfig = {
@@ -37,7 +40,8 @@ export const firebaseConfig = {
     MyBookListComponent,
     LoginComponent,
     BookDetailComponent,
-    ShelfPipe
+    ShelfPipe,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,13 +54,17 @@ export const firebaseConfig = {
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'my-book-list', component: MyBookListComponent },
-      { path: 'myBooks/:id', component: BookDetailComponent }
+      { path: 'my-book-list', component: MyBookListComponent, canActivate: [AuthGuardService] },
+      { path: 'myBooks/:id', component: BookDetailComponent, canActivate: [AuthGuardService] }
+      { path: 'results', component: ResultsComponent, canActivate: [AuthGuardService] }
+
     ])
   ],
   providers: [
     AuthService,
-    BookService
+    AuthGuardService,
+    BookService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { BookService } from './book.service';
 import { Book } from './book.model'
 import { googleBooks } from './api-keys';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class GoodReadsService {
@@ -28,6 +28,7 @@ export class GoodReadsService {
     any = any.replace(' ', '+');
     return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=${any}&key=${googleBooks}`).map(res => res.json());
   }
+
 
   saveBook(googleBooksId: string, shelf: string) {
     return this.http.get(`https://www.googleapis.com/books/v1/volumes/${googleBooksId}?key=${googleBooks}`)
