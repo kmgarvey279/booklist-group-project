@@ -17,6 +17,7 @@ import { MyBookListComponent } from './my-book-list/my-book-list.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
+import { ResultsComponent } from './results/results.component';
 import { BookService } from './book.service';
 import {SearchComponent} from './search/search.component';
 
@@ -39,7 +40,8 @@ export const firebaseConfig = {
     LoginComponent,
     BookDetailComponent,
     ShelfPipe,
-    SearchComponent
+    SearchComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ export const firebaseConfig = {
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'my-book-list', component: MyBookListComponent },
-      { path: 'book-detail', component: BookDetailComponent }
+      { path: 'book-detail', component: BookDetailComponent },
+      { path: 'results', component: ResultsComponent}
     ])
   ],
   providers: [

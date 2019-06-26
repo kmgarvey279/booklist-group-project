@@ -15,7 +15,6 @@ export class BookDetailComponent implements OnInit {
 
   bookId: string;
   bookToDisplay: Book;
-
   ngOnInit() {
     this.route.params.forEach((urlParametersArray) => {
       this.bookId = urlParametersArray['id'];
