@@ -10,7 +10,8 @@ import { GoodReadsService } from './good-reads.service';
   styleUrls: ['./app.component.css'],
   providers: [GoodReadsService]
 })
-export class AppComponent implements OnInit {
+
+export class AppComponent implements OnInit{
   title = 'app works!';
 
   ngOnInit(){
@@ -22,15 +23,16 @@ export class AppComponent implements OnInit {
 
   constructor(
     private googleBooks: GoodReadsService,
-    private userService: UserService, private auth: AuthService, router: Router){
-      auth.user$.subscribe(user => {
-        if (user) {
-          userService.save(user);
+    private userService: UserService,
+    private auth: AuthService, router: Router) {
+    auth.user$.subscribe(user => {
+      if (!user) return;
+      userService.save(user);
+      let returnUrl = localStorage.getItem('returnUrl');
+      if (!returnUrl) return;
 
-          let returnUrl = localStorage.getItem('returnUrl');
-          router.navigateByUrl(returnUrl);
-        }
+      localStorage.removeItem('returnUrl');
+      router.navigateByUrl(returnUrl);
     });
-  
   }
 }

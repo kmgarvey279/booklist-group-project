@@ -1,5 +1,3 @@
-import { UserService } from './user.service';
-import { AuthGuardService } from './auth-guard.service';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -20,6 +18,8 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { BookService } from './book.service';
+import { AuthGuardService } from './auth-guard.service';
+import { UserService } from './user.service';
 
 
 export const firebaseConfig = {
@@ -54,12 +54,17 @@ export const firebaseConfig = {
       { path: 'login', component: LoginComponent },
       { path: 'my-book-list', component: MyBookListComponent, canActivate: [AuthGuardService] },
       { path: 'book-detail', component: BookDetailComponent, canActivate: [AuthGuardService] }
+
+      // { path: 'my-list',
+      //   component: MyListComponent,
+      //   canActivate: [AuthGuardService] 
+      // }
     ])
   ],
   providers: [
     AuthService,
-    BookService,
     AuthGuardService,
+    BookService,
     UserService
   ],
   bootstrap: [AppComponent]

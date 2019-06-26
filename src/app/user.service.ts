@@ -11,5 +11,5 @@ export class UserService {
       name: user.displayName,
       email: user.email
     });
-  }
+   }
 }
