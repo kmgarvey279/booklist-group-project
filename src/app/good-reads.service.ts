@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { BookService } from './book.service';
 import { Book } from './book.model'
 import { googleBooks } from './api-keys';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class GoodReadsService {
@@ -29,22 +29,17 @@ export class GoodReadsService {
     return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=${any}&key=${googleBooks}`).map(res => res.json());
   }
 
+
   saveBook(googleBooksId: string, shelf: string) {
     return this.http.get(`https://www.googleapis.com/books/v1/volumes/${googleBooksId}?key=${googleBooks}`)
       .subscribe(response => {
         let foundBook = new Book(googleBooksId,
                             response.json().volumeInfo.title,
                             this.getAuthors(response.json().volumeInfo.authors),
-                            response.json().volumeInfo.publisher,
-                            response.json().volumeInfo.publishedDate,
-                            response.json().volumeInfo.description,
                             response.json().volumeInfo.pageCount,
                             "string",
                             this.getCategories(response.json().volumeInfo.categories),
-                            response.json().volumeInfo.imageLinks.thumbnail,
                             response.json().volumeInfo.imageLinks.medium,
-                            0,
-                            response.json().saleInfo.buyLink,
                             shelf);
         this.bookService.addBook(foundBook);
       })

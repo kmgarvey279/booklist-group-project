@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Book } from '../book.model';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-book-detail',
@@ -11,68 +12,57 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   providers: [BookService]
 })
 export class BookDetailComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private bookService: BookService) { }
-
   bookId: string;
   bookToDisplay: Book;
+
+  constructor(private route: ActivatedRoute, private bookService: BookService, private location: Location) { }
+
   ngOnInit() {
     this.route.params.forEach((urlParametersArray) => {
       this.bookId = urlParametersArray['id'];
-    })
+    });
     this.bookService.getBookById(this.bookId).subscribe(dataLastEmittedFromObserver => {
-      this.bookToDisplay = new Book(dataLastEmittedFromObserver.id,
-                                    dataLastEmittedFromObserver.volumeInfo.title,
-                                    this.getAuthors(dataLastEmittedFromObserver.volumeInfo.authors),
-                                    dataLastEmittedFromObserver.volumeInfo.publisher,
-                                    dataLastEmittedFromObserver.volumeInfo.publishedDate,
-                                    dataLastEmittedFromObserver.volumeInfo.description,
-                                    dataLastEmittedFromObserver.volumeInfo.pageCount,
-                                    dataLastEmittedFromObserver.valumeInfo.mainCategory,
-                                    this.getCategories(dataLastEmittedFromObserver.volumeInfo.categories),
-                                    dataLastEmittedFromObserver.volumeInfo.imageLinks.thumbnail,
-                                    dataLastEmittedFromObserver.volumeInfo.imageLinks.medium,
-                                    dataLastEmittedFromObserver.saleInfo.retailPrice.amount,
-                                    dataLastEmittedFromObserver.saleInfo.buyLink);
+      this.bookToDisplay = new Book(dataLastEmittedFromObserver.googleBooksId,
+                                    dataLastEmittedFromObserver.title,
+                                    dataLastEmittedFromObserver.authors,
+                                    dataLastEmittedFromObserver.pageCount,
+                                    dataLastEmittedFromObserver.mainCategory,
+                                    dataLastEmittedFromObserver.categories,
+                                    dataLastEmittedFromObserver.image,
+                                    dataLastEmittedFromObserver.shelf);
     })
   }
 
-  getAuthors(observerData) {
-    let authors = "";
-    for (let i = 0; i < observerData.authors.length; i++) {
-      if(i > 0) {
-        authors + ", " + observerData.authors[i];
-      } else {
-        authors + observerData.authors[i];
-      }
-    }
-    return authors;
+  // getAuthors(observerData) {
+  //   let authors = "";
+  //   for (let i = 0; i < observerData.authors.length; i++) {
+  //     if(i > 0) {
+  //       authors + ", " + observerData.authors[i];
+  //     } else {
+  //       authors + observerData.authors[i];
+  //     }
+  //   }
+  //   return authors;
+  // }
+  //
+  // getCategories(observerData) {
+  //   let categories = "";
+  //   for (let i = 0; i < observerData.categories.length; i++) {
+  //     if(i > 0) {
+  //       categories + ", " + observerData.categories[i];
+  //     } else {
+  //       categories + observerData.categories[i];
+  //     }
+  //   }
+  //   return categories;
+  // }
+
+  moveBook(selectedBook: Book, newShelf: string) {
+    this.bookService.updateShelf(selectedBook, newShelf);
   }
 
-  getCategories(observerData) {
-    let categories = "";
-    for (let i = 0; i < observerData.categories.length; i++) {
-      if(i > 0) {
-        categories + ", " + observerData.categories[i];
-      } else {
-        categories + observerData.categories[i];
-      }
-    }
-    return categories;
-  }
 
-  moveToWantToRead(bookToMove) {
-    bookToMove.shelf = "wantToRead";
-  }
-
-  moveToReading(bookToMove) {
-    bookToMove.shelf = "currentlyReading";
-  }
-
-  moveToFinished(bookToMove) {
-    bookToMove.shelf = "finishedReading";
-  }
-
-  deleteBook(bookToMove) {
+  deleteBook(bookToMove: Book) {
     this.bookService.deleteBook(bookToMove);
   }
 }

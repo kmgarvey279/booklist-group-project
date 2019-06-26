@@ -20,6 +20,8 @@ import { AuthService } from './auth.service';
 import { ResultsComponent } from './results/results.component';
 import { BookService } from './book.service';
 import {SearchComponent} from './search/search.component';
+import { AuthGuardService } from './auth-guard.service';
+import { UserService } from './user.service';
 
 
 export const firebaseConfig = {
@@ -54,14 +56,17 @@ export const firebaseConfig = {
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'my-book-list', component: MyBookListComponent },
-      { path: 'book-detail', component: BookDetailComponent },
-      { path: 'results', component: ResultsComponent}
+      { path: 'my-book-list', component: MyBookListComponent, canActivate: [AuthGuardService] },
+      { path: 'myBooks/:id', component: BookDetailComponent, canActivate: [AuthGuardService] },
+      { path: 'results', component: ResultsComponent, canActivate: [AuthGuardService] }
+
     ])
   ],
   providers: [
     AuthService,
-    BookService
+    AuthGuardService,
+    BookService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
