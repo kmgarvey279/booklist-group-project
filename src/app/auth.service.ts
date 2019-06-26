@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 @Injectable()
 export class AuthService {
   user$: Observable<firebase.User>;
+  appUser$: any;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -20,7 +21,6 @@ export class AuthService {
     
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
   }
-
 
   logout() {
     this.afAuth.auth.signOut();
