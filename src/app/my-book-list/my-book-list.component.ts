@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Book } from '../book.model';
 import { BookService } from '../book.service';
 import { Router } from '@angular/router';
@@ -12,13 +12,15 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 
 export class MyBookListComponent implements OnInit {
-
+  constructor(private router: Router, private bookService: BookService) { }
   myBooks: FirebaseListObservable <any[]> = null;
   filterByWantToRead: string = "wantToRead";
   filterByReading: string = "currentlyReading";
   filterByFinished: string = "finishedReading";
 
-  constructor(private router: Router, private bookService: BookService) { }
+  moveBook(selectedBook, newShelf) {
+    this.bookService.updateShelf(selectedBook, newShelf);
+  }
 
   ngOnInit() {
     this.myBooks = this.bookService.getBooks();

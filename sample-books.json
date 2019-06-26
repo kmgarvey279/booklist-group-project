@@ -1,0 +1,45 @@
+
+{ "books": [{
+    "googleBooksId": "hFfhrCWiLSMC",
+    "title": "The Hobbit, Or, There and Back Again",
+    "authors": "John Ronald Reuel Tolkien",
+    "publisher": "Ballantine Books",
+    "publishedDate": "Creator Expert",
+    "pageCount": "Modular Buildings",
+    "mainCategory": "Classics",
+    "categories": "\u003cb\u003eTHE GREATEST FANTASY EPIC OF OUR TIME\u003cbr\u003e\u003cbr\u003e\u003c/b\u003eBilbo Baggins was a hobbit who wanted to be left alone in quiet comfort. But the wizard Gandalf came along with a band of homeless dwarves. Soon Bilbo was drawn into their quest, facing evil orcs, savage wolves, giant spiders, and worse unknown dangers. Finally, it was Bilbo–alone and unaided–who had to confront the great dragon Smaug, the terror of an entire countryside . . .\u003cbr\u003e\u003cbr\u003e\u003cb\u003eThis stirring adventure fantasy begins the tale of the hobbits that was continued by J.R.R. Tolkien in his bestselling epic \u003ci\u003eThe Lord of the Rings\u003c/i\u003e.\u003cbr\u003e\u003c/b\u003e",
+    "thumbnailImage": "http://books.google.com/books/content?id=hFfhrCWiLSMC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE70YYhz4Kh7D0bSF6wBvQ6wrOf46ssbb3Lo7SXrzsyja910dMGVl1SuuxNZfqpYzj0mms-GObrJ9doovoLf55fHBcrkc8hCGXvCgdRbpP4yxtbpi90M&source=gbs_api",
+    "image": "http://books.google.com/books/content?id=hFfhrCWiLSMC&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE70RVnbE7HtCbL-JNffPpoopQwx3GutD-CtAui9kpb6U15DbJdKz-rBXBv7UMs4YcLiiLjTEPNQtpann8j22JWAm_y044gay_8OMaO90O27UhHlcKaM&source=gbs_api",
+    "retailPrice": "",
+    "buyLink": "",
+    "shelf": "finishedReading"
+    }, {
+    "googleBooksId": "wrOQLV6xB-wC",
+    "title": "Harry Potter and The Sorceror's Stone",
+    "authors": "J.K. Rowling",
+    "publisher": "Ballantine Books",
+    "publishedDate": "Creator Expert",
+    "pageCount": "Modular Buildings",
+    "mainCategory": "Classics",
+    "categories": "\u003cb\u003eTHE GREATEST FANTASY EPIC OF OUR TIME\u003cbr\u003e\u003cbr\u003e\u003c/b\u003eBilbo Baggins was a hobbit who wanted to be left alone in quiet comfort. But the wizard Gandalf came along with a band of homeless dwarves. Soon Bilbo was drawn into their quest, facing evil orcs, savage wolves, giant spiders, and worse unknown dangers. Finally, it was Bilbo–alone and unaided–who had to confront the great dragon Smaug, the terror of an entire countryside . . .\u003cbr\u003e\u003cbr\u003e\u003cb\u003eThis stirring adventure fantasy begins the tale of the hobbits that was continued by J.R.R. Tolkien in his bestselling epic \u003ci\u003eThe Lord of the Rings\u003c/i\u003e.\u003cbr\u003e\u003c/b\u003e",
+    "thumbnailImage": "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72jM25i89-hKoy-lvravkZKaG8Hb9jwWaUxDewIv1j55BisVD_RzDIa64y8IuD2ehbepJ5TocvtIXI4uybavze_zXNjCNu070FscsTUVfIO13cZiNQ&source=gbs_api",
+    "image": "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72jM25i89-hKoy-lvravkZKaG8Hb9jwWaUxDewIv1j55BisVD_RzDIa64y8IuD2ehbepJ5TocvtIXI4uybavze_zXNjCNu070FscsTUVfIO13cZiNQ&source=gbs_api",
+    "retailPrice": "",
+    "buyLink": "",
+    "shelf": "wantToRead"
+    }, {
+    "googleBooksId": "0sK3vgEACAAJ",
+    "title": "The Lion, the Witch and the Wardrobe",
+    "authors": "C. S. Lewis",
+    "publisher": "Ballantine Books",
+    "publishedDate": "Creator Expert",
+    "pageCount": "Modular Buildings",
+    "mainCategory": "Classics",
+    "categories": "\u003cb\u003eTHE GREATEST FANTASY EPIC OF OUR TIME\u003cbr\u003e\u003cbr\u003e\u003c/b\u003eBilbo Baggins was a hobbit who wanted to be left alone in quiet comfort. But the wizard Gandalf came along with a band of homeless dwarves. Soon Bilbo was drawn into their quest, facing evil orcs, savage wolves, giant spiders, and worse unknown dangers. Finally, it was Bilbo–alone and unaided–who had to confront the great dragon Smaug, the terror of an entire countryside . . .\u003cbr\u003e\u003cbr\u003e\u003cb\u003eThis stirring adventure fantasy begins the tale of the hobbits that was continued by J.R.R. Tolkien in his bestselling epic \u003ci\u003eThe Lord of the Rings\u003c/i\u003e.\u003cbr\u003e\u003c/b\u003e",
+    "thumbnailImage": "http://books.google.com/books/content?id=0sK3vgEACAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE70KIlWhTD2bCdSCSiMVJ1Wa5zbl4TYwILVs_kBklG-MQ9Pp80f4WiYmLCNdadNG22PTrmY0uL0lKC9bcZyXUloZavOYrCvQWzLhxkf5gzkRArjOXCc&source=gbs_api",
+    "image": "http://books.google.com/books/content?id=hFfhrCWiLSMC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE70YYhz4Kh7D0bSF6wBvQ6wrOf46ssbb3Lo7SXrzsyja910dMGVl1SuuxNZfqpYzj0mms-GObrJ9doovoLf55fHBcrkc8hCGXvCgdRbpP4yxtbpi90M&source=gbs_api",
+    "retailPrice": "",
+    "buyLink": "",
+    "shelf": "currentlyReading"
+  }]
+}
