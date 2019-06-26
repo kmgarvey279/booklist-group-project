@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Book } from '../book.model';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-book-detail',
@@ -10,33 +11,28 @@ import { Book } from '../book.model';
   providers: [BookService]
 })
 export class BookDetailComponent implements OnInit {
+  constructor(private route: ActivatedRoute, private bookService: BookService) { }
+
   bookId: string;
   bookToDisplay: Book;
-
-  constructor(
-    private route: ActivatedRoute,
-    private bookService: BookService
-  ) { }
-
   ngOnInit() {
     this.route.params.forEach((urlParametersArray) => {
       this.bookId = urlParametersArray['id'];
     })
     this.bookService.getBookById(this.bookId).subscribe(dataLastEmittedFromObserver => {
-      this.bookToDisplay = new Book(dataLastEmittedFromObserver.title,
-                                    this.getAuthors(dataLastEmittedFromObserver),
-                                    dataLastEmittedFromObserver.publisher,
-                                    dataLastEmittedFromObserver.publishedDate,
-                                    dataLastEmittedFromObserver.discription,
-                                    dataLastEmittedFromObserver.industryIdentifiers[0],
-                                    dataLastEmittedFromObserver.industryIdentifiers[1],
-                                    dataLastEmittedFromObserver.pageCount,
-                                    dataLastEmittedFromObserver.mainCategory,
-                                    this.getCategories(dataLastEmittedFromObserver),
-                                    dataLastEmittedFromObserver.imageLinks.thumbnail,
-                                    dataLastEmittedFromObserver.imageLinks.medium,
+      this.bookToDisplay = new Book(dataLastEmittedFromObserver.id,
+                                    dataLastEmittedFromObserver.volumeInfo.title,
+                                    this.getAuthors(dataLastEmittedFromObserver.volumeInfo.authors),
+                                    dataLastEmittedFromObserver.volumeInfo.publisher,
+                                    dataLastEmittedFromObserver.volumeInfo.publishedDate,
+                                    dataLastEmittedFromObserver.volumeInfo.description,
+                                    dataLastEmittedFromObserver.volumeInfo.pageCount,
+                                    dataLastEmittedFromObserver.valumeInfo.mainCategory,
+                                    this.getCategories(dataLastEmittedFromObserver.volumeInfo.categories),
+                                    dataLastEmittedFromObserver.volumeInfo.imageLinks.thumbnail,
+                                    dataLastEmittedFromObserver.volumeInfo.imageLinks.medium,
                                     dataLastEmittedFromObserver.saleInfo.retailPrice.amount,
-                                    dataLastEmittedFromObserver.saleInfo.buylink)
+                                    dataLastEmittedFromObserver.saleInfo.buyLink);
     })
   }
 
