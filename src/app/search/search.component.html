@@ -1,9 +1,10 @@
 
 <input #query>
 <select #type>
-  <option value="all">All</option>
+  <option value="any">Any</option>
   <option value="author">Author</option>
   <option value="subject">Subject</option>
   <option value="title">Title</option>
 </select>
-<button (click)="search(query, type)">Search</button>
+<button (click)="search(query.value, type.value)">Search</button>
+<div *ngIf="results">Results here.</div>

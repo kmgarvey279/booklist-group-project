@@ -18,6 +18,7 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { BookService } from './book.service';
+import {SearchComponent} from './search/search.component';
 
 
 export const firebaseConfig = {
@@ -37,7 +38,8 @@ export const firebaseConfig = {
     MyBookListComponent,
     LoginComponent,
     BookDetailComponent,
-    ShelfPipe
+    ShelfPipe,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
