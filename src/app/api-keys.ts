@@ -7,6 +7,4 @@ export const masterFirebaseConfig = {
     messagingSenderId: "78265890768"
 };
 
-export const googleBooks = {
-  // AIzaSyC8ySlSuunpD6rSgiikK9T8bobzftursqw
-}
+export const googleBooks = "AIzaSyC8ySlSuunpD6rSgiikK9T8bobzftursqw";
