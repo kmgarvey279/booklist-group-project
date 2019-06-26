@@ -26,7 +26,6 @@ export class BookDetailComponent implements OnInit {
                                     dataLastEmittedFromObserver.title,
                                     dataLastEmittedFromObserver.authors,
                                     dataLastEmittedFromObserver.pageCount,
-                                    dataLastEmittedFromObserver.categories,
                                     dataLastEmittedFromObserver.image,
                                     dataLastEmittedFromObserver.shelf);
     })

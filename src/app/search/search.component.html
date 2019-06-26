@@ -11,9 +11,11 @@
 <div *ngIf="results">
   <div *ngFor="let book of books;" class="book">
     <p>
-      {{book.volumeInfo.title}} by {{book.volumeInfo.authors}} 
-      {{book.volumeInfo.publishedDate}} 
-      <button (click)="saveBook(book.id)">Add</button>
+      {{book.volumeInfo.title}} by {{book.volumeInfo.authors}}
+      {{book.volumeInfo.publishedDate}}
+      <button (click)="saveBook(book.id, 'wantToRead')">Add to my "Want to Read Shelf"</button>
+      <button (click)="saveBook(book.id, 'currentlyReading')">Add to my "Currently Reading Shelf"</button>
+      <button (click)="saveBook(book.id, 'finishedReading')">Add to my "Books I've Read Shelf"</button>
     </p>
     <p>{{book.volumeInfo.description}}</p>
   </div>

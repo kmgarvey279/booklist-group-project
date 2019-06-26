@@ -3,7 +3,6 @@ export class Book {
               public title: string,
               public authors: string,
               public pageCount: number,
-              public categories: string,
               public image: string,
               public shelf: string = "none") {}
 }

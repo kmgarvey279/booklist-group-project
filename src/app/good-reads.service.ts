@@ -31,13 +31,11 @@ export class GoodReadsService {
 
 
   saveBook(googleBooksId: string, shelf: string) {
-    return this.http.get(`https://www.googleapis.com/books/v1/volumes/${googleBooksId}?key=${googleBooks}`)
-      .subscribe(response => {
+    return this.http.get(`https://www.googleapis.com/books/v1/volumes/${googleBooksId}?key=${googleBooks}`).subscribe(response => {
         let foundBook = new Book(googleBooksId,
                             response.json().volumeInfo.title,
                             response.json().volumeInfo.authors.toString(),
                             response.json().volumeInfo.pageCount,
-                            response.json().volumeInfo.categories.toString(),
                             response.json().volumeInfo.imageLinks.medium,
                             shelf);
         this.bookService.addBook(foundBook);

@@ -9,14 +9,7 @@
         <li *ngFor="let book of myBooks | async | shelf:filterByWantToRead">
           <h3>{{book.title}}</h3>
           <h5>by {{book.authors}}, {{book.pageCount}} pages</h5>
-          <div class="row">
-            <div class="col-md">
-              <img (click)="goToDetailPage(book)" src = {{book.image}}>
-            </div>
-            <div class="col-md">
-              <p>Categories: {{book.categories}}</p>
-            </div>
-          </div>
+          <img (click)="goToDetailPage(book)" src = {{book.image}} width=200px length=200px>
           <button (click)="moveBook(book, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
           <button (click)="moveBook(book, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
           <button (click)="removeBook(book)">Remove From My Shelves</button>
@@ -30,14 +23,7 @@
         <li *ngFor="let book of myBooks | async | shelf:filterByReading">
           <h3>{{book.title}}</h3>
           <h5>by {{book.authors}}, {{book.pageCount}} pages</h5>
-          <div class="row">
-            <div class="col-md">
-              <img (click)="goToDetailPage(book)" src = {{book.image}}>
-            </div>
-            <div class="col-md">
-              <p>Categories: {{book.categories}}</p>
-            </div>
-          </div>
+          <img (click)="goToDetailPage(book)" src = {{book.image}} width=200px length=200px>
           <button (click)="moveBook(book, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
           <button (click)="moveBook(book, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
           <button (click)="removeBook(book)">Remove From My Shelves</button>
@@ -51,14 +37,7 @@
         <li *ngFor="let book of myBooks | async | shelf:filterByFinished">
           <h3>{{book.title}}</h3>
           <h5>by {{book.authors}}, {{book.pageCount}} pages</h5>
-          <div class="row">
-            <div class="col-md">
-              <img (click)="goToDetailPage(book)" src = {{book.image}}>
-            </div>
-            <div class="col-md">
-              <p>Categories: {{book.categories}}</p>
-            </div>
-          </div>
+          <img (click)="goToDetailPage(book)" src = {{book.image}} width=200px length=200px>
           <button (click)="moveBook(book, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
           <button (click)="moveBook(book, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
           <button (click)="removeBook(book)">Remove From My Shelves</button>

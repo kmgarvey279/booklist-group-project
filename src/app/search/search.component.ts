@@ -1,6 +1,6 @@
 import { Component, Input, Output, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
-import {GoodReadsService} from '../good-reads.service';
+import { GoodReadsService } from '../good-reads.service';
 import { Book } from 'app/book.model';
 
 @Component({
@@ -50,10 +50,11 @@ export class SearchComponent implements OnInit {
             this.books = val.items;
             console.log(val.items);
           }
-      });    
+      });
     }
   }
-  saveBook(id: string) {
-    this.googleBooks.saveBook(id, "");
+  saveBook(id: string, shelf: string) {
+    console.log(id);
+    this.googleBooks.saveBook(id, shelf);
   }
 }
