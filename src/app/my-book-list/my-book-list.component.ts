@@ -12,13 +12,17 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 
 export class MyBookListComponent implements OnInit {
-
+  @Input() selectedBook;
   myBooks: FirebaseListObservable <any[]> = null;
   filterByWantToRead: string = "wantToRead";
   filterByReading: string = "currentlyReading";
   filterByFinished: string = "finishedReading";
 
   constructor(private router: Router, private bookService: BookService) { }
+
+  moveBook(selectedBook, newShelf) {
+    this.bookService.updateShelf(selectedBook, newShelf);
+  }
 
   ngOnInit() {
     this.myBooks = this.bookService.getBooks();
@@ -29,6 +33,6 @@ export class MyBookListComponent implements OnInit {
   }
 
   goToDetailPage(clickedBook) {
-    this.router.navigate(['books', clickedBook.$key]);
+    this.router.navigate(['myBooks', clickedBook.$key]);
   }
 }

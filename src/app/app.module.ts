@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { ResultsComponent } from './results/results.component';
 import { BookService } from './book.service';
+import {SearchComponent} from './search/search.component';
 import { AuthGuardService } from './auth-guard.service';
 import { UserService } from './user.service';
 import { SplashPageComponent } from './splash-page/splash-page.component';
@@ -42,6 +43,7 @@ export const firebaseConfig = {
     LoginComponent,
     BookDetailComponent,
     ShelfPipe,
+    SearchComponent,
     ResultsComponent,
     SplashPageComponent
   ],
@@ -58,8 +60,9 @@ export const firebaseConfig = {
       { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
       { path: 'login', component: LoginComponent },
       { path: 'my-book-list', component: MyBookListComponent, canActivate: [AuthGuardService] },
-      { path: 'book-detail', component: BookDetailComponent, canActivate: [AuthGuardService] },
-      { path: 'results', component: ResultsComponent, canActivate: [AuthGuardService]}
+      { path: 'myBooks/:id', component: BookDetailComponent, canActivate: [AuthGuardService] },
+      { path: 'results', component: ResultsComponent, canActivate: [AuthGuardService] }
+
     ])
   ],
   providers: [

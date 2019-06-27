@@ -1,42 +1,40 @@
 <div class="container">
   <div class="row">
     <div class="col-lg">
-      {{bookToDisplay?.imageURL}}
+      <img src = {{bookToDisplay?.image}}>
     </div>
     <div class="col-lg">
       <h2>{{bookToDisplay?.title}}</h2>
-      <h3>by {{bookToDisplay?.author}}</h3>
-      <p><strong>{{bookToDisplay?.discription}}</strong></p>
+      <h3>by {{bookToDisplay?.authors}}</h3>
       <p>{{bookToDisplay?.pageCount}} pages</p>
-      <p>ISBN: {{bookToDisplay?.ispn}}</p>
-      <p>Published {{bookToDisplay?.publicationDay}}/{{bookToDisplay?.publicationMonth}}/{{bookToDisplay?.publicationYear}}</p>
-      <p>Average rating: {{bookToDisplay?.ratingAverage}}</p>
-      <p>{{bookToDisplay?.ratingCount}} total ratings</p>
-      <p>Genre: {{bookToDisplay?.genre}}</p>
+      <p>Publisher: {{bookToDisplay?.publisher}}</p>
+      <p>{{bookToDisplay?.mainCategory}}</p>
 
-      <div ngIf="{{bookToDisplay.shelf}} == 'currentlyReading'">
+      <div *ngIf="bookToDisplay?.shelf == 'currentlyReading'">
         <p id="reading">You are currently reading this book</p>
-        <p (click)="moveToWantToRead(bookToDisplay)">Add to book to your 'Want To Read' shelf</p>
-        <p (click)="moveToFinished(bookToDisplay)">Add this book to my 'Books I've Read' shelf</p>
+        <p (click)="moveBook(bookToDisplay, 'wantToRead')">Add to book to your 'Want To Read' shelf</p>
+        <p (click)="moveBook(bookToDisplay, 'finishedReading')">Add this book to my 'Books I've Read' shelf</p>
         <p (click)="removeBook(bookToDisplay)">Remove this book from my shelves</p>
       </div>
-      <div ngIf="{{bookToDisplay.shelf}} == 'wantToRead'">
+      <div *ngIf="bookToDisplay?.shelf == 'wantToRead'">
         <p id="wantToRead">You want to read this book.</p>
-        <p (click)="moveToReading(bookToDisplay)">Add this book to my 'Currently Reading' shelf</p>
-        <p (click)="moveToFinished(bookToDisplay)">Add this book to my 'Books I've Read' shelf</p>
+        <p (click)="moveBook(bookToDisplaym, 'currentlyReading')">Add this book to my 'Currently Reading' shelf</p>
+        <p (click)="moveBook(bookToDisplay, 'finishedReading')">Add this book to my 'Books I've Read' shelf</p>
         <p (click)="removeBook(bookToDisplay)">Remove this book from my shelves</p>
       </div>
-      <div ngIf="{{bookToDisplay.shelf}} == 'finishedReading'">
+      <div *ngIf="bookToDisplay?.shelf == 'finishedReading'">
         <p id="read">You've read this book.</p>
         <p>Add a rating</p>
         <p>Add a review</p>
-        <p (click)="removeBook(bookToDisplay)">Remove this book from my 'Books I've Read' shelf</p>
+        <p (click)="removeBook(bookToDisplay)">Remove this book from my shelves</p>
+        <p (click)="moveBook(bookToDisplay, 'wantToRead')">Add to book to your 'Want To Read' shelf</p>
+        <p (click)="moveBook(bookToDisplay, 'currentlyReading')">Add this book to your 'Currently Reading' shelf</p>
       </div>
-      <div ngIf="{{bookToDisplay.shelf}} == 'notRead'">
+      <div *ngIf="bookToDisplay?.shelf == 'notRead'">
         <p id="notRead">You've haven't read this book yet.</p>
-        <p (click)="moveToWantToRead(bookToDisplay)">Add to book to your 'Want To Read' shelf</p>
-        <p (click)="moveToReading(bookToDisplay)">Add this book to your 'Currently Reading' shelf</p>
-        <p (click)="moveToFinished(bookToDisplay)">Add this book to my 'Books I've Read' shelf</p>
+        <p (click)="moveBook(bookToDisplay, 'wantToRead')">Add to book to your 'Want To Read' shelf</p>
+        <p (click)="moveBook(bookToDisplay, 'currentlyReading')">Add this book to your 'Currently Reading' shelf</p>
+        <p (click)="moveBook(bookToDisplay, 'finishedReading')">Add this book to my 'Books I've Read' shelf</p>
       </div>
     </div>
   </div>

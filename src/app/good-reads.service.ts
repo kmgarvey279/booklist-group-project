@@ -31,47 +31,14 @@ export class GoodReadsService {
 
 
   saveBook(googleBooksId: string, shelf: string) {
-    return this.http.get(`https://www.googleapis.com/books/v1/volumes/${googleBooksId}?key=${googleBooks}`)
-      .subscribe(response => {
+    return this.http.get(`https://www.googleapis.com/books/v1/volumes/${googleBooksId}?key=${googleBooks}`).subscribe(response => {
         let foundBook = new Book(googleBooksId,
                             response.json().volumeInfo.title,
-                            this.getAuthors(response.json().volumeInfo.authors),
-                            response.json().volumeInfo.publisher,
-                            response.json().volumeInfo.publishedDate,
-                            response.json().volumeInfo.description,
+                            response.json().volumeInfo.authors.toString(),
                             response.json().volumeInfo.pageCount,
-                            response.json().valumeInfo.mainCategory,
-                            this.getCategories(response.json().volumeInfo.categories),
-                            response.json().volumeInfo.imageLinks.thumbnail,
                             response.json().volumeInfo.imageLinks.medium,
-                            response.json().saleInfo.retailPrice.amount,
-                            response.json().saleInfo.buyLink,
                             shelf);
         this.bookService.addBook(foundBook);
       })
-  }
-
-  getAuthors(authorsArr) {
-    let authors = "";
-    for (let i = 0; i < authorsArr.volumeInfo.authors.length; i++) {
-      if(i > 0) {
-        authors + ", " + authorsArr.volumeInfo.authors[i];
-      } else {
-        authors + authorsArr.volumeInfo.authors[i];
-      }
-    }
-    return authors;
-  }
-
-  getCategories(categoriesArr) {
-    let categories = "";
-    for (let i = 0; i < categoriesArr.volumeInfo.categories.length; i++) {
-      if(i > 0) {
-        categories + ", " + categoriesArr.volumeInfo.categories[i];
-      } else {
-        categories + categoriesArr.volumeInfo.categories[i];
-      }
-    }
-    return categories;
   }
 }

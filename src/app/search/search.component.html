@@ -1,0 +1,25 @@
+
+<input #query>
+<select #type>
+  <option value="any">Any</option>
+  <option value="author">Author</option>
+  <option value="subject">Subject</option>
+  <option value="title">Title</option>
+</select>
+<button (click)="search(query.value, type.value)">Search</button>
+<br />
+<div *ngIf="results">
+  <div *ngFor="let book of books;" class="book">
+    <p>
+      {{book.volumeInfo.title}} by {{book.volumeInfo.authors}}
+      {{book.volumeInfo.publishedDate}}
+      <button (click)="saveBook(book.id, 'wantToRead')">Add to my "Want to Read Shelf"</button>
+      <button (click)="saveBook(book.id, 'currentlyReading')">Add to my "Currently Reading Shelf"</button>
+      <button (click)="saveBook(book.id, 'finishedReading')">Add to my "Books I've Read Shelf"</button>
+    </p>
+    <p>{{book.volumeInfo.description}}</p>
+  </div>
+  <!-- <div *ngIf="books===null">
+    <p>No books match your search.</p>
+  </div> -->
+</div>

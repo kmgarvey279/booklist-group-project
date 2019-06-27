@@ -1,0 +1,45 @@
+li {
+  list-style: none;
+  margin-right: 40px;
+}
+
+.container {
+  text-align: center;
+}
+
+button.remove {
+  background-color: gray;
+  border-color: darkgray;
+}
+
+#want {
+  background-color: FireBrick;
+  border-color: darkred;
+}
+
+#finished {
+  background-color: SteelBlue;
+  border-color: darkblue;
+}
+
+#current {
+  background-color: SeaGreen;
+  border-color: darkgreen;
+}
+
+.card-body#finished-shelf {
+  background-color: CadetBlue;
+}
+
+.card-body#want-shelf {
+  background-color: Tomato;
+}
+
+.card-body#current-shelf {
+  background-color: MediumSeaGreen;
+}
+
+img {
+  margin-bottom: 10px;
+  border: solid 3px NavajoWhite;
+}
