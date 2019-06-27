@@ -1,24 +1,34 @@
-<form>
-  <input #query >
-  <select #type>
-    <option value="any">Any</option>
-    <option value="author">Author</option>
-    <option value="subject">Subject</option>
-    <option value="title">Title</option>
-  </select>
-  <button (click)="search(query.value, type.value)">Search</button>
-</form>
-<br />
+<div class="container">
+  <div class="card" style="width: 490px;">
+      <div class="text-center" class="card-body">
+        <h5 class="card-title">Do Your Search Here</h5>
+        <img id="books" src="https://pngimage.net/wp-content/uploads/2018/05/background-book-png.png">
+        <form>
+          <input #query>
+          <select #type>
+            <option value="any">Any</option>
+            <option value="author">Author</option>
+            <option value="subject">Subject</option>
+            <option value="title">Title</option>
+          </select>
+          <button (click)="search(query.value, type.value)">Search</button>
+        </form>
+        </div>
+    </div>
+  </div>
 
+<div class="search_results">
 <div *ngIf="results">
   <div *ngFor="let book of books;" class="book">
     <div class="grid">
+
       <div *ngIf="!book.volumeInfo.imageLinks">
         <img src="./assets/PlaceholderBook.png" weight="150" height="150">
         </div>
       <div *ngIf="book.volumeInfo.imageLinks" id="image">
         <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" weight="150px" height="150px" />
       </div>
+
       <div id="title">
         {{book.volumeInfo.title}}
       </div>
@@ -43,4 +53,5 @@
     </div>
     <hr>
   </div>
+</div>
 </div>
