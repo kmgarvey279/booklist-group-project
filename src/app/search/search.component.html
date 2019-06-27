@@ -13,13 +13,13 @@
         <button (click)="search(query.value, type.value)">Search</button>
         </div>
     </div>
+  </div>
 
+<div class="search_results">
 <div *ngIf="results">
   <div *ngFor="let book of books;" class="book">
     <div class="grid">
-      <div id="image">
-        <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" />
-      </div>
+        <img id="result_image" src="{{book.volumeInfo.imageLinks.smallThumbnail}}" />
       <div id="title">
         {{book.volumeInfo.title}}
       </div>
@@ -41,6 +41,5 @@
     </div>
     <hr>
   </div>
-</div>
 </div>
 </div>

@@ -17,16 +17,24 @@ img#books {
     text-align: center;
   }
 
+.search_results {
+    margin-top: 90px;
+}
+
 .grid {
   display: grid;
   grid-template-areas:
   'image title . wantToRead  '
   'image author author currentlyReading'
   'image description description finishedReading';
-  grid-gap: 5px;
+  grid-gap: 20px;
+  justify-content: center;
 }
-#image {
+
+img#result_image {
   grid-area: image;
+  height: 100px;
+  width: 80px;
 }
 #title {
   font-weight: bold;
@@ -51,6 +59,7 @@ img#books {
 .book {
   /* border: solid 1px lightgray; */
   margin: 5px;
+  margin-top: 20px;
 }
 #wantToRead button {
   color: white;
