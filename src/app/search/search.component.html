@@ -1,5 +1,6 @@
 
 <input #query>
+
 <select #type>
   <option value="any">Any</option>
   <option value="author">Author</option>
@@ -7,16 +8,17 @@
   <option value="title">Title</option>
 </select>
 <button (click)="search(query.value, type.value)">Search</button>
-<br />
+<br><br>
+<div id="mainList">
 <div *ngIf="results">
   <div *ngFor="let book of books;" class="book">
     <p>
       <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" />
-      {{book.volumeInfo.title}} by {{book.volumeInfo.authors}}
+     {{book.volumeInfo.title}}, by {{book.volumeInfo.authors}}
       {{book.volumeInfo.publishedDate}}
-      <button (click)="saveBook(book.id, 'wantToRead')">Add to my "Want to Read Shelf"</button>
-      <button (click)="saveBook(book.id, 'currentlyReading')">Add to my "Currently Reading Shelf"</button>
-      <button (click)="saveBook(book.id, 'finishedReading')">Add to my "Books I've Read Shelf"</button>
+      <button id="want" (click)="saveBook(book.id, 'wantToRead')">Add to my "Want to Read Shelf"</button>
+      <button id="reading" (click)="saveBook(book.id, 'currentlyReading')">Add to my "Currently Reading Shelf"</button>
+      <button id="finished" (click)="saveBook(book.id, 'finishedReading')">Add to my "Books I've Read Shelf"</button>
     </p>
     <p>{{book.volumeInfo.description}}</p>
   </div>

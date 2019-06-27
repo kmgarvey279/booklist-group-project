@@ -1,0 +1,17 @@
+#want {
+  color: white;
+  background-color: FireBrick;
+  border-color: darkred;
+}
+
+#finished {
+  color: white;
+  background-color: SteelBlue;
+  border-color: darkblue;
+}
+
+#reading {
+  color: white;
+  background-color: SeaGreen;
+  border-color: darkgreen;
+}
