@@ -24,17 +24,15 @@ img#books {
 .grid {
   display: grid;
   grid-template-areas:
-  'image title . wantToRead  '
+  'image title title wantToRead  '
   'image author author currentlyReading'
   'image description description finishedReading';
-  grid-gap: 20px;
+  grid-gap: 5px;
   justify-content: center;
 }
 
-img#result_image {
+#image {
   grid-area: image;
-  height: 100px;
-  width: 80px;
 }
 #title {
   font-weight: bold;
@@ -59,7 +57,7 @@ img#result_image {
 .book {
   /* border: solid 1px lightgray; */
   margin: 5px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 #wantToRead button {
   color: white;
