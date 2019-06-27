@@ -54,7 +54,6 @@ export class SearchComponent implements OnInit {
     }
   }
   saveBook(id: string, shelf: string) {
-    console.log(id);
     this.googleBooks.saveBook(id, shelf);
   }
 }
