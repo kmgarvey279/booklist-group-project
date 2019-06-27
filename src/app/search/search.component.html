@@ -1,26 +1,41 @@
+<form>
 
-<input #query>
-<select #type>
-  <option value="any">Any</option>
-  <option value="author">Author</option>
-  <option value="subject">Subject</option>
-  <option value="title">Title</option>
-</select>
-<button (click)="search(query.value, type.value)">Search</button>
+
+  <input #query>
+  <select #type>
+    <option value="any">Any</option>
+    <option value="author">Author</option>
+    <option value="subject">Subject</option>
+    <option value="title">Title</option>
+  </select>
+  <button (click)="search(query.value, type.value)">Search</button>
+</form>
 <br />
 <div *ngIf="results">
   <div *ngFor="let book of books;" class="book">
-    <p>
-      <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" />
-      {{book.volumeInfo.title}} by {{book.volumeInfo.authors}}
-      {{book.volumeInfo.publishedDate}}
-      <button (click)="saveBook(book.id, 'wantToRead')">Add to my "Want to Read Shelf"</button>
-      <button (click)="saveBook(book.id, 'currentlyReading')">Add to my "Currently Reading Shelf"</button>
-      <button (click)="saveBook(book.id, 'finishedReading')">Add to my "Books I've Read Shelf"</button>
-    </p>
-    <p>{{book.volumeInfo.description}}</p>
+    <div class="grid">
+      <div id="image">
+        <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" />
+      </div>
+      <div id="title">
+        {{book.volumeInfo.title}}
+      </div>
+      <div id="author">
+        by {{book.volumeInfo.authors}}
+      </div>
+      <div id="description">
+        <p>{{book.volumeInfo.description}}</p>
+      </div>
+      <div id="wantToRead">
+        <button (click)="saveBook(book.id, 'wantToRead')">Add to my "Want to Read Shelf"</button>
+      </div>
+      <div id="currentlyReading">
+        <button (click)="saveBook(book.id, 'currentlyReading')">Add to my "Currently Reading Shelf"</button>
+      </div>
+      <div id="finishedReading">
+        <button (click)="saveBook(book.id, 'finishedReading')">Add to my "Books I've Read Shelf"</button>
+      </div>
+    </div>
+    <hr>
   </div>
-  <!-- <div *ngIf="books===null">
-    <p>No books match your search.</p>
-  </div> -->
 </div>

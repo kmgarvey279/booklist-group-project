@@ -1,0 +1,34 @@
+.grid {
+  display: grid;
+  grid-template-areas:
+  'image title . wantToRead  '
+  'image author author currentlyReading'
+  'image description description finishedReading';
+  grid-gap: 5px;
+}
+#image {
+  grid-area: image;
+}
+#title {
+  font-weight: bold;
+  grid-area: title;
+}
+#author {
+  grid-area: author;
+}
+#wantToRead {
+  grid-area: wantToRead;
+}
+#currentlyReading {
+  grid-area: currentlyReading;
+}
+#finishedReading {
+  grid-area: finishedReading;
+}
+#description {
+  grid-area: description;
+}
+.book {
+  /* border: solid 1px lightgray; */
+  margin: 5px;
+}
