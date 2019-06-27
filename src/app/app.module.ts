@@ -21,6 +21,7 @@ import { ResultsComponent } from './results/results.component';
 import { BookService } from './book.service';
 import { AuthGuardService } from './auth-guard.service';
 import { UserService } from './user.service';
+import { SplashPageComponent } from './splash-page/splash-page.component';
 
 
 export const firebaseConfig = {
@@ -41,7 +42,8 @@ export const firebaseConfig = {
     LoginComponent,
     BookDetailComponent,
     ShelfPipe,
-    ResultsComponent
+    ResultsComponent,
+    SplashPageComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: SplashPageComponent },
+      { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
       { path: 'login', component: LoginComponent },
       { path: 'my-book-list', component: MyBookListComponent, canActivate: [AuthGuardService] },
       { path: 'book-detail', component: BookDetailComponent, canActivate: [AuthGuardService] },

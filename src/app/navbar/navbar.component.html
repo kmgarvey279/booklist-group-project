@@ -1,7 +1,7 @@
 
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+<nav ngbDropdown *ngIf="auth.user$ | async as user; else annonymousUser" class="navbar navbar-expand-md navbar-light bg-light fixed-top">
   <div class="container">
-      <a class="navbar-brand" routerLink="/">Virtual Bookshelf</a>
+      <a class="navbar-brand" routerLink="/home">Virtual Bookshelf</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"
   [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
     <span class="navbar-toggler-icon"></span>
@@ -9,12 +9,12 @@
 
   <div id="collapseExample" [ngbCollapse]="!isCollapsed" class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-        <ng-template #annonymousUser>
+        <!-- <ng-template #annonymousUser>
       <li class="nav-item">
         <a class="nav-link" routerLink="login">Login</a>
       </li>
-      </ng-template>
-      <li ngbDropdown *ngIf="auth.user$ | async as user; else annonymousUser" class="nav-item dropdown">
+      </ng-template> -->
+      <li  class="nav-item dropdown">
         <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{ user.displayName }}</a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
