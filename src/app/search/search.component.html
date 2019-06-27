@@ -3,14 +3,16 @@
       <div class="text-center" class="card-body">
         <h5 class="card-title">Do Your Search Here</h5>
         <img id="books" src="https://pngimage.net/wp-content/uploads/2018/05/background-book-png.png">
-        <input #query>
-        <select #type>
-          <option value="any">Any</option>
-          <option value="author">Author</option>
-          <option value="subject">Subject</option>
-          <option value="title">Title</option>
-        </select>
-        <button (click)="search(query.value, type.value)">Search</button>
+        <form>
+          <input #query>
+          <select #type>
+            <option value="any">Any</option>
+            <option value="author">Author</option>
+            <option value="subject">Subject</option>
+            <option value="title">Title</option>
+          </select>
+          <button (click)="search(query.value, type.value)">Search</button>
+        </form>
         </div>
     </div>
   </div>
