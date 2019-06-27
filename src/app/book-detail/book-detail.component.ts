@@ -31,30 +31,6 @@ export class BookDetailComponent implements OnInit {
     })
   }
 
-  // getAuthors(observerData) {
-  //   let authors = "";
-  //   for (let i = 0; i < observerData.authors.length; i++) {
-  //     if(i > 0) {
-  //       authors + ", " + observerData.authors[i];
-  //     } else {
-  //       authors + observerData.authors[i];
-  //     }
-  //   }
-  //   return authors;
-  // }
-  //
-  // getCategories(observerData) {
-  //   let categories = "";
-  //   for (let i = 0; i < observerData.categories.length; i++) {
-  //     if(i > 0) {
-  //       categories + ", " + observerData.categories[i];
-  //     } else {
-  //       categories + observerData.categories[i];
-  //     }
-  //   }
-  //   return categories;
-  // }
-
   moveBook(selectedBook: Book, newShelf: string) {
     this.bookService.updateShelf(selectedBook, newShelf);
   }
