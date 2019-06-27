@@ -37,11 +37,11 @@ export class BookDetailComponent implements OnInit {
     })
   }
 
-  moveBook(selectedBook: Book, newShelf: string) {
+  moveBook(newShelf: string) {
     this.bookService.updateShelf(this.bookId, newShelf);
-    alert(selectedBook.shelf);
   }
-  removeBook(selectedBook: Book) {
-    this.bookService.deleteBook(selectedBook);
+  removeBook() {
+    this.bookService.deleteBook(this.bookId);
+    window.location.replace("../../my-book-list")
   }
 }

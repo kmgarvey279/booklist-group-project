@@ -38,7 +38,7 @@ export class GoodReadsService {
                             response.json().volumeInfo.imageLinks.medium,
                             response.json().volumeInfo.publisher,
                             response.json().volumeInfo.publishedDate,
-                            response.json().volumeInfo.categories.toString(),
+                            response.json().volumeInfo.categories.toString(" "),
                             response.json().volumeInfo.averageRating,
                             response.json().volumeInfo.ratingsCount,
                             shelf);

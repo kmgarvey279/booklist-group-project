@@ -15,30 +15,21 @@
               <h5>Total Ratings: <span id="details">{{bookToDisplay?.ratingsCount}}</span></h5>
               <div *ngIf="bookToDisplay?.shelf == 'currentlyReading'">
                 <p id="current">You are currently reading this book</p>
-                <button id="want" (click)="moveBook(bookToDisplay, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
-                <button id="finished" (click)="moveBook(bookToDisplay, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
-                <button class="remove" (click)="removeBook(bookToDisplay)">Remove From My Shelves</button>
+                <button id="want" (click)="moveBook('wantToRead')">Move To My 'Want To Read' Shelf</button>
+                <button id="finished" (click)="moveBook('finishedReading')">Move To My 'Books I've Read' Shelf</button>
+                <button class="remove" (click)="removeBook()">Remove From My Shelves</button>
               </div>
               <div *ngIf="bookToDisplay?.shelf == 'wantToRead'">
                 <p id="want">You want to read this book.</p>
-                <button id="current" (click)="moveBook(bookToDisplay, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
-                <button id="finished" (click)="moveBook(bookToDisplay, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
-                <button class="remove" (click)="removeBook(bookToDisplay)">Remove From My Shelves</button>
+                <button id="current" (click)="moveBook('currentlyReading')">Move To My 'Currently Reading' Shelf</button>
+                <button id="finished" (click)="moveBook('finishedReading')">Move To My 'Books I've Read' Shelf</button>
+                <button class="remove" (click)="removeBook()">Remove From My Shelves</button>
               </div>
               <div *ngIf="bookToDisplay?.shelf == 'finishedReading'">
                 <p id="finished">You've read this book.</p>
-                <p>Add a rating</p>
-                <p>Add a review</p>
-                <button id="want" (click)="moveBook(bookToDisplay, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
-                <button id="current" (click)="moveBook(bookToDisplay, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
-                <button class="remove" (click)="removeBook(bookToDisplay)">Remove From My Shelves</button>
-              </div>
-              <div *ngIf="bookToDisplay?.shelf == 'notRead'">
-                <p id="notRead">You've haven't read this book yet.</p>
-                <button id="want" (click)="moveBook(bookToDisplay, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
-                <button id="current" (click)="moveBook(bookToDisplay, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
-                <button id="finished" (click)="moveBook(bookToDisplay, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
-                <button class="remove" (click)="removeBook(bookToDisplay)">Remove From My Shelves</button>
+                <button id="want" (click)="moveBook('wantToRead')">Move To My 'Want To Read' Shelf</button>
+                <button id="current" (click)="moveBook('currentlyReading')">Move To My 'Currently Reading' Shelf</button>
+                <button class="remove" (click)="removeBook()">Remove From My Shelves</button>
               </div>
             </div>
           </div>
