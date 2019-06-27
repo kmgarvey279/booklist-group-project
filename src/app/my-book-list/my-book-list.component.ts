@@ -20,16 +20,15 @@ export class MyBookListComponent implements OnInit {
 
   constructor(private router: Router, private bookService: BookService) { }
 
-  moveBook(selectedBook, newShelf) {
-    this.bookService.updateShelf(selectedBook, newShelf);
-  }
-
   ngOnInit() {
     this.myBooks = this.bookService.getBooks();
   }
 
-  removeBook(selectedBook: Book) {
-    this.bookService.deleteBook(selectedBook);
+  moveBook(selectedBook, newShelf) {
+    this.bookService.updateShelf(selectedBook.$key, newShelf);
+  }
+  removeBook(selectedBook) {
+    this.bookService.deleteBook(selectedBook.$key);
   }
 
   goToDetailPage(clickedBook) {

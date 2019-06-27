@@ -20,3 +20,20 @@
 .container {
   text-align: center;
 }
+
+.card#outer{
+  background-color: RebeccaPurple;
+}
+
+.card-header {
+  background-color: MediumPurple;
+}
+
+.card#inner{
+  background-color: MediumPurple;
+}
+
+button.remove {
+  background-color: gray;
+  border-color: darkgray;
+}
