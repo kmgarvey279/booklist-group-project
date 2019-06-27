@@ -31,29 +31,17 @@ export class GoodReadsService {
 
   saveBook(googleBooksId: string, shelf: string) {
     return this.http.get(`https://www.googleapis.com/books/v1/volumes/${googleBooksId}?key=${googleBooks}`).subscribe(response => {
-        let image = "./assets/PlaceholderBook.png";
-        let rating = "No Ratings Available";
-        let ratingsCount = "No Ratings Available";
         let foundBook = new Book(googleBooksId,
                             response.json().volumeInfo.title,
                             response.json().volumeInfo.authors.toString(),
                             response.json().volumeInfo.pageCount,
-                            image,
+                            response.json().volumeInfo.imageLinks.thumbnail,
                             response.json().volumeInfo.publisher,
                             response.json().volumeInfo.publishedDate,
                             response.json().volumeInfo.categories.toString(" "),
-                            rating,
-                            ratingsCount,
+                            response.json().volumeInfo.averageRating,
+                            response.json().volumeInfo.ratingsCount,
                             shelf);
-        if (response.json().volumeInfo.imageLinks.thumbnail) {
-          image = response.json().volumeInfo.imageLinks.thumbnail;
-        }
-        if (response.json().volumeInfo.averageRating) {
-          rating = response.json().volumeInfo.averageRating;
-        }
-        if (response.json().volumeInfo.ratingCount) {
-          ratingsCount = response.json().volumeInfo.ratingsCount;
-        }
         this.bookService.addBook(foundBook);
       })
   }
