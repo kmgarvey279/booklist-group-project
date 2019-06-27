@@ -31,7 +31,7 @@ export class GoodReadsService {
 
   saveBook(googleBooksId: string, shelf: string) {
     return this.http.get(`https://www.googleapis.com/books/v1/volumes/${googleBooksId}?key=${googleBooks}`).subscribe(response => {
-        let image = '<img src="./assets/img/PlaceholderBook.png" weight=100px height=100px>';
+        let image = "./assets/PlaceholderBook.png";
         let rating = "No Ratings Available";
         let ratingsCount = "No Ratings Available";
         let foundBook = new Book(googleBooksId,

@@ -14,7 +14,7 @@
   <div *ngFor="let book of books;" class="book">
     <div class="grid">
       <div *ngIf="!book.volumeInfo.imageLinks">
-        <p>No Image available</p>
+        <img src="./assets/PlaceholderBook.png" weight="150" height="150">
         </div>
       <div *ngIf="book.volumeInfo.imageLinks" id="image">
         <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" weight="150px" height="150px" />
