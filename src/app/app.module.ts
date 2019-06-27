@@ -61,7 +61,8 @@ export const firebaseConfig = {
       { path: 'login', component: LoginComponent },
       { path: 'my-book-list', component: MyBookListComponent, canActivate: [AuthGuardService] },
       { path: 'myBooks/:id', component: BookDetailComponent, canActivate: [AuthGuardService] },
-      { path: 'results', component: ResultsComponent, canActivate: [AuthGuardService] }
+      { path: 'results', component: ResultsComponent, canActivate: [AuthGuardService] },
+      { path: 'search', component: SearchComponent}
 
     ])
   ],
