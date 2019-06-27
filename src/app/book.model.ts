@@ -7,7 +7,7 @@ export class Book {
               public publisher: string,
               public publishedDate: string,
               public categories: string,
-              public averageRating: number,
-              public ratingsCount: number,
+              public averageRating: string,
+              public ratingsCount: string,
               public shelf: string = "none") {}
 }
