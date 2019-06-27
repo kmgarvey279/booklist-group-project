@@ -4,5 +4,10 @@ export class Book {
               public authors: string,
               public pageCount: number,
               public image: string,
+              public publisher: string,
+              public publishedDate: string,
+              public categories: string,
+              public averageRating: string,
+              public ratingsCount: string,
               public shelf: string = "none") {}
 }
