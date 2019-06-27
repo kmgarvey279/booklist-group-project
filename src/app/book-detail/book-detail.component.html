@@ -3,11 +3,16 @@
     <div class="card-header"><h2>{{bookToDisplay?.title}}</h2></div>
     <div class="card-body">
       <div class="row">
-        <div class="col-lg">
+        <div class="col-lg-8">
           <div class="card" id="inner">
             <div class="card-body">
-              <h5>by {{bookToDisplay?.authors}}</h5>
-              <h5>{{bookToDisplay?.pageCount}} pages</h5>
+              <h5>Author: <span id="details">{{bookToDisplay?.authors}}</span></h5>
+              <h5>Page Count: <span id="details">{{bookToDisplay?.pageCount}}</span></h5>
+              <h5>Publisher: <span id="details">{{bookToDisplay?.publisher}}</span></h5>
+              <h5>Publication Date: <span id="details">{{bookToDisplay?.publishedDate}}</span></h5>
+              <h5>Categories: <span id="details">{{bookToDisplay?.categories}}</span></h5>
+              <h5>Average Rating: <span id="details">{{bookToDisplay?.averageRating}}</span></h5>
+              <h5>Total Ratings: <span id="details">{{bookToDisplay?.ratingsCount}}</span></h5>
               <div *ngIf="bookToDisplay?.shelf == 'currentlyReading'">
                 <p id="current">You are currently reading this book</p>
                 <button id="want" (click)="moveBook(bookToDisplay, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
@@ -38,12 +43,12 @@
             </div>
           </div>
         </div>
-        <div class="col-lg">
+        <div class="col-lg-4">
           <img src = {{bookToDisplay?.image}} weight=400px height="400px">
         </div>
       </div>
     </div>
   </div>
   <h5><a routerLink="../../my-book-list">Return to My Shelves</a></h5>
-  <h5><a routerLink="/">Return to Book Search</a></h5>
+  <h5><a routerLink="/">Home</a></h5>
 </div>

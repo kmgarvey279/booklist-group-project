@@ -36,6 +36,11 @@ export class GoodReadsService {
                             response.json().volumeInfo.authors.toString(),
                             response.json().volumeInfo.pageCount,
                             response.json().volumeInfo.imageLinks.medium,
+                            response.json().volumeInfo.publisher,
+                            response.json().volumeInfo.publishedDate,
+                            response.json().volumeInfo.categories.toString(),
+                            response.json().volumeInfo.averageRating,
+                            response.json().volumeInfo.ratingsCount,
                             shelf);
         this.bookService.addBook(foundBook);
       })

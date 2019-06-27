@@ -17,20 +17,21 @@
   border-color: darkgreen;
 }
 
-.container {
-  text-align: center;
-}
-
 .card#outer{
   background-color: RebeccaPurple;
 }
 
 .card-header {
   background-color: MediumPurple;
+  text-align: center;
 }
 
 .card#inner{
   background-color: MediumPurple;
+}
+
+#details {
+  color: dimgray;
 }
 
 button.remove {
