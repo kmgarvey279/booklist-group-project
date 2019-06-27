@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card" style="width: 490px;">
       <div class="text-center" class="card-body">
-        <h5 class="card-title">Do Your Search Here</h5>
+       
         <img id="books" src="https://pngimage.net/wp-content/uploads/2018/05/background-book-png.png">
         <form>
           <input #query>
@@ -22,8 +22,8 @@
   <div *ngFor="let book of books;" class="book">
     <div class="grid">
 
-      <div *ngIf="!book.volumeInfo.imageLinks">
-        <img src="./assets/PlaceholderBook.png" weight="150" height="150">
+      <div *ngIf="!book.volumeInfo.imageLinks" id="image">
+        <img src="./assets/PlaceholderBook.png" weight="150px" height="150px">
         </div>
       <div *ngIf="book.volumeInfo.imageLinks" id="image">
         <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" weight="150px" height="150px" />
