@@ -1,6 +1,6 @@
-li {
-  list-style: none;
-  margin-right: 40px;
+ul {
+  padding: 0;
+  list-style-type: none;
 }
 
 .container {
@@ -27,19 +27,37 @@ button.remove {
   border-color: darkgreen;
 }
 
+.card {
+  border: none;
+}
+
 .card-body#finished-shelf {
-  background-color: CadetBlue;
+  background-color: CornflowerBlue;
+}
+
+.card-body#finished-book {
+  background-color: MediumSlateBlue;
 }
 
 .card-body#want-shelf {
   background-color: Tomato;
 }
 
+.card-body#want-book {
+  background-color: IndianRed;
+}
+
 .card-body#current-shelf {
   background-color: MediumSeaGreen;
 }
 
+.card-body#current-book {
+  background-color: MediumSpringGreen;
+}
+
+
+
 img {
   margin-bottom: 10px;
-  border: solid 3px NavajoWhite;
+  border: solid 2px black;
 }
