@@ -1,38 +1,39 @@
 <div class="container">
-  <div class="card">
+  <div class="card" id="outer">
     <div class="card-header"><h2>{{bookToDisplay?.title}}</h2></div>
     <div class="card-body">
       <div class="row">
         <div class="col-lg">
-          <div class="card">
+          <div class="card" id="inner">
             <div class="card-body">
               <h5>by {{bookToDisplay?.authors}}</h5>
               <h5>{{bookToDisplay?.pageCount}} pages</h5>
               <div *ngIf="bookToDisplay?.shelf == 'currentlyReading'">
                 <p id="current">You are currently reading this book</p>
-                <p (click)="moveBook(bookToDisplay, 'wantToRead')">Add to book to your 'Want To Read' shelf</p>
-                <p (click)="moveBook(bookToDisplay, 'finishedReading')">Add this book to my 'Books I've Read' shelf</p>
-                <p (click)="removeBook(bookToDisplay)">Remove this book from my shelves</p>
+                <button id="want" (click)="moveBook(bookToDisplay, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
+                <button id="finished" (click)="moveBook(bookToDisplay, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
+                <button class="remove" (click)="removeBook(bookToDisplay)">Remove From My Shelves</button>
               </div>
               <div *ngIf="bookToDisplay?.shelf == 'wantToRead'">
                 <p id="want">You want to read this book.</p>
-                <p (click)="moveBook(bookToDisplaym, 'currentlyReading')">Add this book to my 'Currently Reading' shelf</p>
-                <p (click)="moveBook(bookToDisplay, 'finishedReading')">Add this book to my 'Books I've Read' shelf</p>
-                <p (click)="removeBook(bookToDisplay)">Remove this book from my shelves</p>
+                <button id="current" (click)="moveBook(bookToDisplay, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
+                <button id="finished" (click)="moveBook(bookToDisplay, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
+                <button class="remove" (click)="removeBook(bookToDisplay)">Remove From My Shelves</button>
               </div>
               <div *ngIf="bookToDisplay?.shelf == 'finishedReading'">
                 <p id="finished">You've read this book.</p>
                 <p>Add a rating</p>
                 <p>Add a review</p>
-                <p (click)="removeBook(bookToDisplay)">Remove this book from my shelves</p>
-                <p (click)="moveBook(bookToDisplay, 'wantToRead')">Add to book to your 'Want To Read' shelf</p>
-                <p (click)="moveBook(bookToDisplay, 'currentlyReading')">Add this book to your 'Currently Reading' shelf</p>
+                <button id="want" (click)="moveBook(bookToDisplay, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
+                <button id="current" (click)="moveBook(bookToDisplay, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
+                <button class="remove" (click)="removeBook(bookToDisplay)">Remove From My Shelves</button>
               </div>
               <div *ngIf="bookToDisplay?.shelf == 'notRead'">
                 <p id="notRead">You've haven't read this book yet.</p>
-                <p (click)="moveBook(bookToDisplay, 'wantToRead')">Add to book to your 'Want To Read' shelf</p>
-                <p (click)="moveBook(bookToDisplay, 'currentlyReading')">Add this book to your 'Currently Reading' shelf</p>
-                <p (click)="moveBook(bookToDisplay, 'finishedReading')">Add this book to my 'Books I've Read' shelf</p>
+                <button id="want" (click)="moveBook(bookToDisplay, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
+                <button id="current" (click)="moveBook(bookToDisplay, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
+                <button id="finished" (click)="moveBook(bookToDisplay, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
+                <button class="remove" (click)="removeBook(bookToDisplay)">Remove From My Shelves</button>
               </div>
             </div>
           </div>

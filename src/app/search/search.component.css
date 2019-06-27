@@ -11,6 +11,7 @@
 }
 #title {
   font-weight: bold;
+  font-size: 1.25em;
   grid-area: title;
 }
 #author {
@@ -31,4 +32,21 @@
 .book {
   /* border: solid 1px lightgray; */
   margin: 5px;
+}
+#wantToRead button {
+  color: white;
+  background-color: FireBrick;
+  border-color: darkred;
+}
+
+#finishedReading button {
+  color: white;
+  background-color: SteelBlue;
+  border-color: darkblue;
+}
+
+#currentlyReading button {
+  color: white;
+  background-color: SeaGreen;
+  border-color: darkgreen;
 }
