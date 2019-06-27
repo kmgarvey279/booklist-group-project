@@ -1,12 +1,20 @@
+<div class="container">
+  <div class="card" style="width: 490px;">
+      <div class="text-center" class="card-body">
+        <h5 class="card-title">Do Your Search Here</h5>
+        <img id="books" src="https://pngimage.net/wp-content/uploads/2018/05/background-book-png.png">
+        <input #query>
+        <select #type>
+          <option value="any">Any</option>
+          <option value="author">Author</option>
+          <option value="subject">Subject</option>
+          <option value="title">Title</option>
+        </select>
+        <button (click)="search(query.value, type.value)">Search</button>
+        </div>
+    </div>
+  
 
-<input #query>
-<select #type>
-  <option value="any">Any</option>
-  <option value="author">Author</option>
-  <option value="subject">Subject</option>
-  <option value="title">Title</option>
-</select>
-<button (click)="search(query.value, type.value)">Search</button>
 <br />
 <div *ngIf="results">
   <div *ngFor="let book of books;" class="book">
@@ -23,4 +31,5 @@
   <!-- <div *ngIf="books===null">
     <p>No books match your search.</p>
   </div> -->
+</div>
 </div>
