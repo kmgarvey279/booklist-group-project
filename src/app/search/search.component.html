@@ -11,6 +11,7 @@
 <div *ngIf="results">
   <div *ngFor="let book of books;" class="book">
     <p>
+      <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" />
       {{book.volumeInfo.title}} by {{book.volumeInfo.authors}}
       {{book.volumeInfo.publishedDate}}
       <button (click)="saveBook(book.id, 'wantToRead')">Add to my "Want to Read Shelf"</button>
