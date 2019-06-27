@@ -18,13 +18,13 @@ export class BookService {
     return this.books;
   }
 
-  updateShelf(bookToMove, newShelf) {
-    let bookEntryInFirebase = this.getBookById(bookToMove.$key);
+  updateShelf(bookToMoveKey, newShelf) {
+    let bookEntryInFirebase = this.getBookById(bookToMoveKey);
     bookEntryInFirebase.update({shelf: newShelf});
   }
 
-  deleteBook(selectedBook) {
-    let foundBook = this.getBookById(selectedBook.$key);
+  deleteBook(selectedBookKey) {
+    let foundBook = this.getBookById(selectedBookKey);
     foundBook.remove();
   }
 

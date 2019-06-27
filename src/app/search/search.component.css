@@ -1,3 +1,4 @@
+
 .card {
     margin: 0 auto;
     float: none;
@@ -15,3 +16,56 @@ img#books {
 .container {
     text-align: center;
   }
+
+.grid {
+  display: grid;
+  grid-template-areas:
+  'image title . wantToRead  '
+  'image author author currentlyReading'
+  'image description description finishedReading';
+  grid-gap: 5px;
+}
+#image {
+  grid-area: image;
+}
+#title {
+  font-weight: bold;
+  font-size: 1.25em;
+  grid-area: title;
+}
+#author {
+  grid-area: author;
+}
+#wantToRead {
+  grid-area: wantToRead;
+}
+#currentlyReading {
+  grid-area: currentlyReading;
+}
+#finishedReading {
+  grid-area: finishedReading;
+}
+#description {
+  grid-area: description;
+}
+.book {
+  /* border: solid 1px lightgray; */
+  margin: 5px;
+}
+#wantToRead button {
+  color: white;
+  background-color: FireBrick;
+  border-color: darkred;
+}
+
+#finishedReading button {
+  color: white;
+  background-color: SteelBlue;
+  border-color: darkblue;
+}
+
+#currentlyReading button {
+  color: white;
+  background-color: SeaGreen;
+  border-color: darkgreen;
+}

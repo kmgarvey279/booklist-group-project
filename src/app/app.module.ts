@@ -17,7 +17,6 @@ import { MyBookListComponent } from './my-book-list/my-book-list.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
-import { ResultsComponent } from './results/results.component';
 import { BookService } from './book.service';
 import {SearchComponent} from './search/search.component';
 import { AuthGuardService } from './auth-guard.service';
@@ -44,7 +43,6 @@ export const firebaseConfig = {
     BookDetailComponent,
     ShelfPipe,
     SearchComponent,
-    ResultsComponent,
     SplashPageComponent
   ],
   imports: [
@@ -61,7 +59,7 @@ export const firebaseConfig = {
       { path: 'login', component: LoginComponent },
       { path: 'my-book-list', component: MyBookListComponent, canActivate: [AuthGuardService] },
       { path: 'myBooks/:id', component: BookDetailComponent, canActivate: [AuthGuardService] },
-      { path: 'results', component: ResultsComponent, canActivate: [AuthGuardService] }
+      { path: 'search', component: SearchComponent}
 
     ])
   ],

@@ -2,14 +2,38 @@
   background-color: gray;
 }
 
-#wantToRead {
-  background-color: orange;
+#want {
+  background-color: FireBrick;
+  border-color: darkred;
 }
 
-#reading {
-  background-color: green;
+#finished {
+  background-color: SteelBlue;
+  border-color: darkblue;
 }
 
-#read {
-  background-color: blue;
+#current {
+  background-color: SeaGreen;
+  border-color: darkgreen;
+}
+
+.container {
+  text-align: center;
+}
+
+.card#outer{
+  background-color: RebeccaPurple;
+}
+
+.card-header {
+  background-color: MediumPurple;
+}
+
+.card#inner{
+  background-color: MediumPurple;
+}
+
+button.remove {
+  background-color: gray;
+  border-color: darkgray;
 }
