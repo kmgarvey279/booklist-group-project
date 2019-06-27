@@ -13,8 +13,11 @@
 <div *ngIf="results">
   <div *ngFor="let book of books;" class="book">
     <div class="grid">
-      <div id="image">
-        <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" />
+      <div *ngIf="!book.volumeInfo.imageLinks">
+        <p>No Image available</p>
+        </div>
+      <div *ngIf="book.volumeInfo.imageLinks" id="image">
+        <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" weight="150px" height="150px" />
       </div>
       <div id="title">
         {{book.volumeInfo.title}}
