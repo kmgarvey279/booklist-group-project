@@ -1,12 +1,15 @@
+<form>
 
-<input #query>
-<select #type>
-  <option value="any">Any</option>
-  <option value="author">Author</option>
-  <option value="subject">Subject</option>
-  <option value="title">Title</option>
-</select>
-<button (click)="search(query.value, type.value)">Search</button>
+
+  <input #query>
+  <select #type>
+    <option value="any">Any</option>
+    <option value="author">Author</option>
+    <option value="subject">Subject</option>
+    <option value="title">Title</option>
+  </select>
+  <button (click)="search(query.value, type.value)">Search</button>
+</form>
 <br />
 <div *ngIf="results">
   <div *ngFor="let book of books;" class="book">
