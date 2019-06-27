@@ -37,6 +37,9 @@
       <div id="finishedReading">
         <button (click)="saveBook(book.id, 'finishedReading')">Add to my "Books I've Read Shelf"</button>
       </div>
+      <div *ngIf="added">
+        <p>This book has been successfully added to your shelves!</p>
+      </div>
     </div>
     <hr>
   </div>
