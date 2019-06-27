@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
+import { GoodReadsService } from '../good-reads.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Book } from '../book.model';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
@@ -15,7 +16,7 @@ export class BookDetailComponent implements OnInit {
   bookId: string;
   bookToDisplay: Book;
 
-  constructor(private route: ActivatedRoute, private bookService: BookService, private location: Location) { }
+  constructor(private route: ActivatedRoute, private bookService: BookService, private goodReadsService: GoodReadsService,  private location: Location) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParametersArray) => {
@@ -27,40 +28,20 @@ export class BookDetailComponent implements OnInit {
                                     dataLastEmittedFromObserver.authors,
                                     dataLastEmittedFromObserver.pageCount,
                                     dataLastEmittedFromObserver.image,
+                                    dataLastEmittedFromObserver.publisher,
+                                    dataLastEmittedFromObserver.publishedDate,
+                                    dataLastEmittedFromObserver.categories,
+                                    dataLastEmittedFromObserver.averageRating,
+                                    dataLastEmittedFromObserver.ratingsCount,
                                     dataLastEmittedFromObserver.shelf);
     })
   }
 
-  // getAuthors(observerData) {
-  //   let authors = "";
-  //   for (let i = 0; i < observerData.authors.length; i++) {
-  //     if(i > 0) {
-  //       authors + ", " + observerData.authors[i];
-  //     } else {
-  //       authors + observerData.authors[i];
-  //     }
-  //   }
-  //   return authors;
-  // }
-  //
-  // getCategories(observerData) {
-  //   let categories = "";
-  //   for (let i = 0; i < observerData.categories.length; i++) {
-  //     if(i > 0) {
-  //       categories + ", " + observerData.categories[i];
-  //     } else {
-  //       categories + observerData.categories[i];
-  //     }
-  //   }
-  //   return categories;
-  // }
-
-  moveBook(selectedBook: Book, newShelf: string) {
-    this.bookService.updateShelf(selectedBook, newShelf);
+  moveBook(newShelf: string) {
+    this.bookService.updateShelf(this.bookId, newShelf);
   }
-
-
-  deleteBook(bookToMove: Book) {
-    this.bookService.deleteBook(bookToMove);
+  removeBook() {
+    this.bookService.deleteBook(this.bookId);
+    window.location.replace("../../my-book-list")
   }
 }

@@ -29,7 +29,6 @@ export class GoodReadsService {
     return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=${any}&key=${googleBooks}`).map(res => res.json());
   }
 
-
   saveBook(googleBooksId: string, shelf: string) {
     return this.http.get(`https://www.googleapis.com/books/v1/volumes/${googleBooksId}?key=${googleBooks}`).subscribe(response => {
         let foundBook = new Book(googleBooksId,
@@ -37,6 +36,11 @@ export class GoodReadsService {
                             response.json().volumeInfo.authors.toString(),
                             response.json().volumeInfo.pageCount,
                             response.json().volumeInfo.imageLinks.medium,
+                            response.json().volumeInfo.publisher,
+                            response.json().volumeInfo.publishedDate,
+                            response.json().volumeInfo.categories.toString(" "),
+                            response.json().volumeInfo.averageRating,
+                            response.json().volumeInfo.ratingsCount,
                             shelf);
         this.bookService.addBook(foundBook);
       })
