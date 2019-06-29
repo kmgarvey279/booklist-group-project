@@ -14,10 +14,11 @@
                 <div class="card-header" id="want"><h3>{{book.title}}</h3></div>
                 <div class="card-body" id="want-book">
                   <h6>by {{book.authors}}</h6>
-                  <h6>{{book.pageCount}} pages</h6>
+                  <h6>Progress: {{book.progress}}/{{book.pageCount}}</h6>
+                  <p><ngb-progressbar type="info" [value]="book.progress" [max]="book.pageCount"></ngb-progressbar></p>
                   <img (click)="goToDetailPage(book)" src = {{book.image}} width=200px length=200px><br>
-                  <button id="current" (click)="moveBook(book, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
-                  <button id="finished" (click)="moveBook(book, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
+                  <button id="current" (click)="moveBook(book, 'currentlyReading', book.pageCount)">Move To My 'Currently Reading' Shelf</button>
+                  <button id="finished" (click)="moveBook(book, 'finishedReading', book.pageCount)">Move To My 'Books I've Read' Shelf</button>
                   <button class="remove" (click)="removeBook(book)">Remove From My Shelves</button>
                 </div>
               </div><br>
@@ -37,10 +38,11 @@
                 <div class="card-header" id="current"><h3>{{book.title}}</h3></div>
                 <div class="card-body" id="current-book">
                   <h6>by {{book.authors}}</h6>
-                  <h6>{{book.pageCount}} pages</h6>
+                  <h6>Progress: {{book.progress}}/{{book.pageCount}}</h6>
+                  <p><ngb-progressbar type="info" [value]="book.progress" [max]="book.pageCount"></ngb-progressbar></p>
                   <img (click)="goToDetailPage(book)" src = {{book.image}} width=200px length=200px><br>
-                  <button id="want" (click)="moveBook(book, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
-                  <button id="finished" (click)="moveBook(book, 'finishedReading')">Move To My 'Books I've Read' Shelf</button>
+                  <button id="want" (click)="moveBook(book, 'wantToRead', book.pageCount)">Move To My 'Want To Read' Shelf</button>
+                  <button id="finished" (click)="moveBook(book, 'finishedReading', book.pageCount)">Move To My 'Books I've Read' Shelf</button>
                   <button class="remove" (click)="removeBook(book)">Remove From My Shelves</button>
                 </div>
               </div><br>
@@ -60,10 +62,11 @@
                 <div class="card-header" id="finished"><h3>{{book.title}}</h3></div>
                 <div class="card-body" id="finished-book">
                   <h6>by {{book.authors}}</h6>
-                  <h6>{{book.pageCount}} pages</h6>
+                  <h6>Progress: {{book.progress}}/{{book.pageCount}}</h6>
+                  <p><ngb-progressbar type="info" [value]="book.progress" [max]="book.pageCount"></ngb-progressbar></p>
                   <img (click)="goToDetailPage(book)" src = {{book.image}} width=200px length=200px>
-                  <button id="want" (click)="moveBook(book, 'wantToRead')">Move To My 'Want To Read' Shelf</button>
-                  <button id="current" (click)="moveBook(book, 'currentlyReading')">Move To My 'Currently Reading' Shelf</button>
+                  <button id="want" (click)="moveBook(book, 'wantToRead', book.pageCount)">Move To My 'Want To Read' Shelf</button>
+                  <button id="current" (click)="moveBook(book, 'currentlyReading', book.pageCount)">Move To My 'Currently Reading' Shelf</button>
                   <button class="remove" (click)="removeBook(book)">Remove From My Shelves</button>
                 </div>
               </div><br>

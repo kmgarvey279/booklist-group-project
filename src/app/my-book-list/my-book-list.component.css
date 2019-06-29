@@ -55,9 +55,22 @@ button.remove {
   background-color: MediumSpringGreen;
 }
 
-
-
 img {
   margin-bottom: 10px;
   border: solid 2px black;
+}
+
+progress {
+  height: 9px;
+  border: 0px none;
+  background-color: #e8ebef;
+  color: #red;
+}
+
+progress::-webkit-progress-value {
+  background-color: #fc2323;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #e8ebef;
 }

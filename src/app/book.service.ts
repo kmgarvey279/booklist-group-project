@@ -38,9 +38,24 @@ export class BookService {
     return ids;
   }
 
-  updateShelf(bookToMoveKey, newShelf) {
+  updateShelf(bookToMoveKey, newShelf, pageCount) {
     let bookEntryInFirebase = this.getBookById(bookToMoveKey);
     bookEntryInFirebase.update({shelf: newShelf});
+    if(newShelf == "wantToRead" || newShelf == "currentlyReading") {
+      bookEntryInFirebase.update({progress: 0});
+    } else if(newShelf == "finishedReading"){
+      bookEntryInFirebase.update({progress: pageCount});
+    }
+  }
+
+  updateBookProgress(bookToUpdateKey, newProgress) {
+    let bookEntryInFirebase = this.getBookById(bookToUpdateKey);
+    bookEntryInFirebase.update({progress: newProgress});
+  }
+
+  updateBookRating(bookToUpdateKey, newRating) {
+    let bookEntryInFirebase = this.getBookById(bookToUpdateKey);
+    bookEntryInFirebase.update({rating: newRating});
   }
 
   deleteBook(selectedBookKey) {

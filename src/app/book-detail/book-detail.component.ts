@@ -15,6 +15,7 @@ import { Location } from '@angular/common';
 export class BookDetailComponent implements OnInit {
   bookId: string;
   bookToDisplay: Book;
+  pages: number;
 
   constructor(private route: ActivatedRoute, private bookService: BookService, private goodReadsService: GoodReadsService,  private location: Location) { }
 
@@ -33,13 +34,27 @@ export class BookDetailComponent implements OnInit {
                                     dataLastEmittedFromObserver.categories.join(', '),
                                     dataLastEmittedFromObserver.averageRating,
                                     dataLastEmittedFromObserver.ratingsCount,
-                                    dataLastEmittedFromObserver.shelf);
+                                    dataLastEmittedFromObserver.shelf,
+                                    dataLastEmittedFromObserver.progress,
+                                    dataLastEmittedFromObserver.myRating);
     })
   }
 
-  moveBook(newShelf: string) {
-    this.bookService.updateShelf(this.bookId, newShelf);
+  moveBook(newShelf) {
+    this.bookService.updateShelf(this.bookId, newShelf, this.bookToDisplay.pageCount);
   }
+
+  updateProgress(newProgress) {
+    this.bookService.updateBookProgress(this.bookId, newProgress);
+    if(newProgress > this.bookToDisplay.pageCount) {
+      this.bookService.updateShelf(this.bookId, "finishedReading", this.bookToDisplay.pageCount);
+    }
+  }
+
+  updateRating(newRating) {
+    this.bookService.updateBookRating(this.bookId, newRating);
+  }
+
   removeBook() {
     this.bookService.deleteBook(this.bookId);
     window.location.replace("../../my-book-list")

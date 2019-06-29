@@ -24,8 +24,9 @@ export class MyBookListComponent implements OnInit {
     this.myBooks = this.bookService.getBooks();
   }
 
-  moveBook(selectedBook, newShelf) {
-    this.bookService.updateShelf(selectedBook.$key, newShelf);
+  moveBook(selectedBook, newShelf, pageCount) {
+    console.log(selectedBook.$key);
+    this.bookService.updateShelf(selectedBook.$key, newShelf, pageCount);
   }
   removeBook(selectedBook) {
     this.bookService.deleteBook(selectedBook.$key);

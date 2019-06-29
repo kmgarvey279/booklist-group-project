@@ -41,7 +41,7 @@
 
     <div *ngIf="!ids.includes(book.id)">
       <div id="wantToRead">
-        <button (click)="saveBook(book.id, 'wantToyRead')">Add to my "Want to Read Shelf"</button>
+        <button (click)="saveBook(book.id, 'wantToRead')">Add to my "Want to Read Shelf"</button>
       </div>
       <div id="currentlyReading">
         <button (click)="saveBook(book.id, 'currentlyReading')">Add to my "Currently Reading Shelf"</button>
