@@ -4,16 +4,20 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import * as firebase from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class BookService {
   books: FirebaseListObservable<any[]>;
+  Id
+  googleIds: FirebaseListObservable<any[]>;
   ref = null;
   uid = null;
   scopeFire = firebase;
   constructor(private af: AngularFireDatabase, public fAuth: AngularFireAuth, public auth: AuthService) {
     this.uid = localStorage.getItem('user');
     this.books = af.list(`users/${this.uid}/books`);
+    this.googleIds = af.list(`users/${this.uid}/books/volumeInfo/googleBooksId`)
   }
 
   addBook(newBook: Book) {
@@ -22,6 +26,16 @@ export class BookService {
 
   getBooks() {
     return this.books;
+  }
+
+  getGoogleBooksIds() {
+    let ids = [];
+    this.books.subscribe(books => {
+      books.forEach(book => {
+        ids.push(book.googleBooksId);
+      })
+    })
+    return ids;
   }
 
   updateShelf(bookToMoveKey, newShelf) {

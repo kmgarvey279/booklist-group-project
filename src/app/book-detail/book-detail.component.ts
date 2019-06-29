@@ -25,12 +25,12 @@ export class BookDetailComponent implements OnInit {
     this.bookService.getBookById(this.bookId).subscribe(dataLastEmittedFromObserver => {
       this.bookToDisplay = new Book(dataLastEmittedFromObserver.googleBooksId,
                                     dataLastEmittedFromObserver.title,
-                                    dataLastEmittedFromObserver.authors,
+                                    dataLastEmittedFromObserver.authors.join(', '),
                                     dataLastEmittedFromObserver.pageCount,
                                     dataLastEmittedFromObserver.image,
                                     dataLastEmittedFromObserver.publisher,
                                     dataLastEmittedFromObserver.publishedDate,
-                                    dataLastEmittedFromObserver.categories,
+                                    dataLastEmittedFromObserver.categories.join(', '),
                                     dataLastEmittedFromObserver.averageRating,
                                     dataLastEmittedFromObserver.ratingsCount,
                                     dataLastEmittedFromObserver.shelf);

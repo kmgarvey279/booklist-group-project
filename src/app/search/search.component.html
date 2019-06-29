@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card" style="width: 490px;">
       <div class="text-center" class="card-body">
-       
+
         <img id="books" src="https://pngimage.net/wp-content/uploads/2018/05/background-book-png.png">
         <form>
           <input #query>
@@ -38,8 +38,10 @@
       <div id="description">
         <p>{{book.volumeInfo.description}}</p>
       </div>
+
+    <div *ngIf="!ids.includes(book.id)">
       <div id="wantToRead">
-        <button (click)="saveBook(book.id, 'wantToRead')">Add to my "Want to Read Shelf"</button>
+        <button (click)="saveBook(book.id, 'wantToyRead')">Add to my "Want to Read Shelf"</button>
       </div>
       <div id="currentlyReading">
         <button (click)="saveBook(book.id, 'currentlyReading')">Add to my "Currently Reading Shelf"</button>
@@ -47,9 +49,13 @@
       <div id="finishedReading">
         <button (click)="saveBook(book.id, 'finishedReading')">Add to my "Books I've Read Shelf"</button>
       </div>
-      <div *ngIf="added">
-        <p>This book has been successfully added to your shelves!</p>
-      </div>
+    </div>
+
+    <div *ngIf="ids.includes(book.id)">
+      <p>This book is on your shelves!</p>
+      <h5><a routerLink="/my-book-list">View my Shelves</a></h5>
+    </div>
+
     </div>
     <hr>
   </div>

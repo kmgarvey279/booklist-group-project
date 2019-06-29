@@ -11,11 +11,14 @@ import { Book } from 'app/book.model';
 })
 export class SearchComponent implements OnInit {
   @Input() results:boolean;
-  books: any[] = null;;
+  books: any[] = null;
+  ids: any[] = null;
 
-  constructor(private googleBooks: GoodReadsService) { }
+  constructor(private googleBooks: GoodReadsService, private bookService: BookService) { }
 
   ngOnInit() {
+    this.ids = this.bookService.getGoogleBooksIds();
+    this
   }
   search(query:string, type:string) {
     this.books = null;
@@ -53,6 +56,7 @@ export class SearchComponent implements OnInit {
       });
     }
   }
+
   saveBook(id: string, shelf: string) {
     this.googleBooks.saveBook(id, shelf);
   }
