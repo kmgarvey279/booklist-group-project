@@ -20,43 +20,65 @@
 <div class="search_results">
 <div *ngIf="results">
   <div *ngFor="let book of books;" class="book">
-    <div class="grid">
 
-      <div *ngIf="!book.volumeInfo.imageLinks" id="image">
-        <img src="./assets/PlaceholderBook.png" weight="150px" height="150px">
+    <div class="row">
+
+      <div class="col-lg-2">
+        <div *ngIf="!book.volumeInfo.imageLinks" id="image">
+          <img src="./assets/PlaceholderBook.png" weight="150px" height="150px">
+          </div>
+        <div *ngIf="book.volumeInfo.imageLinks" id="image">
+          <img src="{{book.volumeInfo.imageLinks.thumbnail}}" weight="150px" height="150px" />
         </div>
-      <div *ngIf="book.volumeInfo.imageLinks" id="image">
-        <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" weight="150px" height="150px" />
       </div>
 
-      <div id="title">
-        {{book.volumeInfo.title}}
-      </div>
-      <div id="author">
-        by {{book.volumeInfo.authors}}
-      </div>
-      <div id="description">
-        <p>{{book.volumeInfo.description}}</p>
+      <div class="col-lg-2">
+        <div id="title">
+          <p>{{book.volumeInfo.title}}</p>
+        </div>
+        <div id="author">
+          <div *ngIf="book.volumeInfo.authors">
+            by {{book.volumeInfo.authors}}
+          </div>
+          <div *ngIf="!book.volumeInfo.authors">
+            Author Information Unavailable
+          </div>
+        </div>
       </div>
 
-    <div *ngIf="!ids.includes(book.id)">
-      <div id="wantToRead">
-        <button (click)="saveBook(book.id, 'wantToRead')">Add to my "Want to Read Shelf"</button>
+      <div class="col-lg-6">
+        <div *ngIf="book.volumeInfo.description">
+          <div id="description">
+            {{book.volumeInfo.description}}
+          </div>
+        </div>
+        <div *ngIf="!book.volumeInfo.description">
+          <div>
+            Book Description Unavailable
+          </div>
+        </div>
       </div>
-      <div id="currentlyReading">
-        <button (click)="saveBook(book.id, 'currentlyReading')">Add to my "Currently Reading Shelf"</button>
+
+      <div class="col-lg-2">
+        <div *ngIf="!ids.includes(book.id)">
+          <div id="wantToRead">
+            <button (click)="saveBook(book.id, 'wantToRead')">Add to my "Want to Read Shelf"</button>
+          </div>
+          <div id="currentlyReading">
+            <button (click)="saveBook(book.id, 'currentlyReading')">Add to my "Currently Reading Shelf"</button>
+          </div>
+          <div id="finishedReading">
+            <button (click)="saveBook(book.id, 'finishedReading')">Add to my "Books I've Read Shelf"</button>
+          </div>
+        </div>
+        <div *ngIf="ids.includes(book.id)">
+          <p>This book is on your shelves!</p>
+          <h5><a routerLink="/my-book-list">View my Shelves</a></h5>
+        </div>
       </div>
-      <div id="finishedReading">
-        <button (click)="saveBook(book.id, 'finishedReading')">Add to my "Books I've Read Shelf"</button>
-      </div>
+
     </div>
 
-    <div *ngIf="ids.includes(book.id)">
-      <p>This book is on your shelves!</p>
-      <h5><a routerLink="/my-book-list">View my Shelves</a></h5>
-    </div>
-
-    </div>
     <hr>
   </div>
 </div>

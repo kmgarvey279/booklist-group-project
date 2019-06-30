@@ -17,6 +17,11 @@
   border-color: darkgreen;
 }
 
+#update {
+  background-color: goldenrod;
+  border-color: darkgoldenrod;
+}
+
 .card#outer{
   background-color: RebeccaPurple;
 }
@@ -31,7 +36,7 @@
 }
 
 #details {
-  color: dimgray;
+  color: midnightblue;
 }
 
 button.remove {

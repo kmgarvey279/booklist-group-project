@@ -36,7 +36,7 @@ export class BookDetailComponent implements OnInit {
                                     dataLastEmittedFromObserver.ratingsCount,
                                     dataLastEmittedFromObserver.shelf,
                                     dataLastEmittedFromObserver.progress,
-                                    dataLastEmittedFromObserver.myRating);
+                                    dataLastEmittedFromObserver.rating);
     })
   }
 

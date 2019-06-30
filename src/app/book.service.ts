@@ -49,6 +49,7 @@ export class BookService {
   }
 
   updateBookProgress(bookToUpdateKey, newProgress) {
+    alert(bookToUpdateKey);
     let bookEntryInFirebase = this.getBookById(bookToUpdateKey);
     bookEntryInFirebase.update({progress: newProgress});
   }
